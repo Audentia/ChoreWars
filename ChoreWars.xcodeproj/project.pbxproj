@@ -16,6 +16,7 @@
 		C36B4A971B786D120040FDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36B4A951B786D120040FDF0 /* LaunchScreen.storyboard */; };
 		C36B4AA21B786D120040FDF0 /* ChoreWarsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4AA11B786D120040FDF0 /* ChoreWarsTests.m */; };
 		C36B4AAD1B786D120040FDF0 /* ChoreWarsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4AAC1B786D120040FDF0 /* ChoreWarsUITests.m */; };
+		C36B4ABC1B786FEE0040FDF0 /* ChoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4ABB1B786FEE0040FDF0 /* ChoreView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		C36B4AA81B786D120040FDF0 /* ChoreWarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChoreWarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36B4AAC1B786D120040FDF0 /* ChoreWarsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoreWarsUITests.m; sourceTree = "<group>"; };
 		C36B4AAE1B786D120040FDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C36B4ABA1B786FEE0040FDF0 /* ChoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreView.h; sourceTree = "<group>"; };
+		C36B4ABB1B786FEE0040FDF0 /* ChoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 				C36B4A881B786D120040FDF0 /* AppDelegate.m */,
 				C36B4A8A1B786D120040FDF0 /* ViewController.h */,
 				C36B4A8B1B786D120040FDF0 /* ViewController.m */,
+				C36B4ABA1B786FEE0040FDF0 /* ChoreView.h */,
+				C36B4ABB1B786FEE0040FDF0 /* ChoreView.m */,
 				C36B4A8D1B786D120040FDF0 /* Main.storyboard */,
 				C36B4A931B786D120040FDF0 /* Assets.xcassets */,
 				C36B4A951B786D120040FDF0 /* LaunchScreen.storyboard */,
@@ -277,6 +282,7 @@
 				C36B4A8C1B786D120040FDF0 /* ViewController.m in Sources */,
 				C36B4A891B786D120040FDF0 /* AppDelegate.m in Sources */,
 				C36B4A861B786D120040FDF0 /* main.m in Sources */,
+				C36B4ABC1B786FEE0040FDF0 /* ChoreView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

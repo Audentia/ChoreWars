@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ChoreView.h"
 
 @interface ViewController ()
 
@@ -16,8 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
+
+    CGRect choreSize = CGRectMake(self.view.frame.size.width / 2 - 50, self.view.frame.size.height / 2 - 50, 100, 100);
+    ChoreView *choreOne = [[ChoreView alloc] initWithFrame:choreSize];
+    ChoreView *choreTwo = [[ChoreView alloc] initWithFrame:choreSize];
+    choreTwo.backgroundColor = [UIColor redColor];
+    [self.view addSubview:choreOne];
+    [self.view addSubview:choreTwo];
+ }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
