@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C36B4A861B786D120040FDF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A851B786D120040FDF0 /* main.m */; };
+		C36B4A891B786D120040FDF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A881B786D120040FDF0 /* AppDelegate.m */; };
+		C36B4A8C1B786D120040FDF0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A8B1B786D120040FDF0 /* ViewController.m */; };
+		C36B4A8F1B786D120040FDF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36B4A8D1B786D120040FDF0 /* Main.storyboard */; };
+		C36B4A921B786D120040FDF0 /* ChoreWars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A901B786D120040FDF0 /* ChoreWars.xcdatamodeld */; };
+		C36B4A941B786D120040FDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C36B4A931B786D120040FDF0 /* Assets.xcassets */; };
+		C36B4A971B786D120040FDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36B4A951B786D120040FDF0 /* LaunchScreen.storyboard */; };
+		C36B4AA21B786D120040FDF0 /* ChoreWarsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4AA11B786D120040FDF0 /* ChoreWarsTests.m */; };
+		C36B4AAD1B786D120040FDF0 /* ChoreWarsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4AAC1B786D120040FDF0 /* ChoreWarsUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C36B4A9E1B786D120040FDF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C36B4A791B786D110040FDF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C36B4A801B786D110040FDF0;
+			remoteInfo = ChoreWars;
+		};
+		C36B4AA91B786D120040FDF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C36B4A791B786D110040FDF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C36B4A801B786D110040FDF0;
+			remoteInfo = ChoreWars;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C36B4A811B786D120040FDF0 /* ChoreWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChoreWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C36B4A851B786D120040FDF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C36B4A871B786D120040FDF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C36B4A881B786D120040FDF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C36B4A8A1B786D120040FDF0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C36B4A8B1B786D120040FDF0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C36B4A8E1B786D120040FDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C36B4A911B786D120040FDF0 /* ChoreWars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChoreWars.xcdatamodel; sourceTree = "<group>"; };
+		C36B4A931B786D120040FDF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C36B4A961B786D120040FDF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C36B4A981B786D120040FDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C36B4A9D1B786D120040FDF0 /* ChoreWarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChoreWarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C36B4AA11B786D120040FDF0 /* ChoreWarsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoreWarsTests.m; sourceTree = "<group>"; };
+		C36B4AA31B786D120040FDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C36B4AA81B786D120040FDF0 /* ChoreWarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChoreWarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C36B4AAC1B786D120040FDF0 /* ChoreWarsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoreWarsUITests.m; sourceTree = "<group>"; };
+		C36B4AAE1B786D120040FDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C36B4A7E1B786D110040FDF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C36B4A9A1B786D120040FDF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C36B4AA51B786D120040FDF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C36B4A781B786D110040FDF0 = {
+			isa = PBXGroup;
+			children = (
+				C36B4A831B786D120040FDF0 /* ChoreWars */,
+				C36B4AA01B786D120040FDF0 /* ChoreWarsTests */,
+				C36B4AAB1B786D120040FDF0 /* ChoreWarsUITests */,
+				C36B4A821B786D120040FDF0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C36B4A821B786D120040FDF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C36B4A811B786D120040FDF0 /* ChoreWars.app */,
+				C36B4A9D1B786D120040FDF0 /* ChoreWarsTests.xctest */,
+				C36B4AA81B786D120040FDF0 /* ChoreWarsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C36B4A831B786D120040FDF0 /* ChoreWars */ = {
+			isa = PBXGroup;
+			children = (
+				C36B4A871B786D120040FDF0 /* AppDelegate.h */,
+				C36B4A881B786D120040FDF0 /* AppDelegate.m */,
+				C36B4A8A1B786D120040FDF0 /* ViewController.h */,
+				C36B4A8B1B786D120040FDF0 /* ViewController.m */,
+				C36B4A8D1B786D120040FDF0 /* Main.storyboard */,
+				C36B4A931B786D120040FDF0 /* Assets.xcassets */,
+				C36B4A951B786D120040FDF0 /* LaunchScreen.storyboard */,
+				C36B4A981B786D120040FDF0 /* Info.plist */,
+				C36B4A901B786D120040FDF0 /* ChoreWars.xcdatamodeld */,
+				C36B4A841B786D120040FDF0 /* Supporting Files */,
+			);
+			path = ChoreWars;
+			sourceTree = "<group>";
+		};
+		C36B4A841B786D120040FDF0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C36B4A851B786D120040FDF0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C36B4AA01B786D120040FDF0 /* ChoreWarsTests */ = {
+			isa = PBXGroup;
+			children = (
+				C36B4AA11B786D120040FDF0 /* ChoreWarsTests.m */,
+				C36B4AA31B786D120040FDF0 /* Info.plist */,
+			);
+			path = ChoreWarsTests;
+			sourceTree = "<group>";
+		};
+		C36B4AAB1B786D120040FDF0 /* ChoreWarsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C36B4AAC1B786D120040FDF0 /* ChoreWarsUITests.m */,
+				C36B4AAE1B786D120040FDF0 /* Info.plist */,
+			);
+			path = ChoreWarsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C36B4A801B786D110040FDF0 /* ChoreWars */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C36B4AB11B786D120040FDF0 /* Build configuration list for PBXNativeTarget "ChoreWars" */;
+			buildPhases = (
+				C36B4A7D1B786D110040FDF0 /* Sources */,
+				C36B4A7E1B786D110040FDF0 /* Frameworks */,
+				C36B4A7F1B786D110040FDF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChoreWars;
+			productName = ChoreWars;
+			productReference = C36B4A811B786D120040FDF0 /* ChoreWars.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C36B4A9C1B786D120040FDF0 /* ChoreWarsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C36B4AB41B786D120040FDF0 /* Build configuration list for PBXNativeTarget "ChoreWarsTests" */;
+			buildPhases = (
+				C36B4A991B786D120040FDF0 /* Sources */,
+				C36B4A9A1B786D120040FDF0 /* Frameworks */,
+				C36B4A9B1B786D120040FDF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C36B4A9F1B786D120040FDF0 /* PBXTargetDependency */,
+			);
+			name = ChoreWarsTests;
+			productName = ChoreWarsTests;
+			productReference = C36B4A9D1B786D120040FDF0 /* ChoreWarsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C36B4AA71B786D120040FDF0 /* ChoreWarsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C36B4AB71B786D120040FDF0 /* Build configuration list for PBXNativeTarget "ChoreWarsUITests" */;
+			buildPhases = (
+				C36B4AA41B786D120040FDF0 /* Sources */,
+				C36B4AA51B786D120040FDF0 /* Frameworks */,
+				C36B4AA61B786D120040FDF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C36B4AAA1B786D120040FDF0 /* PBXTargetDependency */,
+			);
+			name = ChoreWarsUITests;
+			productName = ChoreWarsUITests;
+			productReference = C36B4AA81B786D120040FDF0 /* ChoreWarsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C36B4A791B786D110040FDF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = madebydouglas;
+				TargetAttributes = {
+					C36B4A801B786D110040FDF0 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					C36B4A9C1B786D120040FDF0 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = C36B4A801B786D110040FDF0;
+					};
+					C36B4AA71B786D120040FDF0 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = C36B4A801B786D110040FDF0;
+					};
+				};
+			};
+			buildConfigurationList = C36B4A7C1B786D110040FDF0 /* Build configuration list for PBXProject "ChoreWars" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C36B4A781B786D110040FDF0;
+			productRefGroup = C36B4A821B786D120040FDF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C36B4A801B786D110040FDF0 /* ChoreWars */,
+				C36B4A9C1B786D120040FDF0 /* ChoreWarsTests */,
+				C36B4AA71B786D120040FDF0 /* ChoreWarsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C36B4A7F1B786D110040FDF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C36B4A971B786D120040FDF0 /* LaunchScreen.storyboard in Resources */,
+				C36B4A941B786D120040FDF0 /* Assets.xcassets in Resources */,
+				C36B4A8F1B786D120040FDF0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C36B4A9B1B786D120040FDF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C36B4AA61B786D120040FDF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C36B4A7D1B786D110040FDF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C36B4A921B786D120040FDF0 /* ChoreWars.xcdatamodeld in Sources */,
+				C36B4A8C1B786D120040FDF0 /* ViewController.m in Sources */,
+				C36B4A891B786D120040FDF0 /* AppDelegate.m in Sources */,
+				C36B4A861B786D120040FDF0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C36B4A991B786D120040FDF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C36B4AA21B786D120040FDF0 /* ChoreWarsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C36B4AA41B786D120040FDF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C36B4AAD1B786D120040FDF0 /* ChoreWarsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C36B4A9F1B786D120040FDF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C36B4A801B786D110040FDF0 /* ChoreWars */;
+			targetProxy = C36B4A9E1B786D120040FDF0 /* PBXContainerItemProxy */;
+		};
+		C36B4AAA1B786D120040FDF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C36B4A801B786D110040FDF0 /* ChoreWars */;
+			targetProxy = C36B4AA91B786D120040FDF0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C36B4A8D1B786D120040FDF0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C36B4A8E1B786D120040FDF0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C36B4A951B786D120040FDF0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C36B4A961B786D120040FDF0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C36B4AAF1B786D120040FDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C36B4AB01B786D120040FDF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C36B4AB21B786D120040FDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ChoreWars/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = madebydouglas.ChoreWars;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C36B4AB31B786D120040FDF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ChoreWars/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = madebydouglas.ChoreWars;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C36B4AB51B786D120040FDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ChoreWarsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = madebydouglas.ChoreWarsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChoreWars.app/ChoreWars";
+			};
+			name = Debug;
+		};
+		C36B4AB61B786D120040FDF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ChoreWarsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = madebydouglas.ChoreWarsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChoreWars.app/ChoreWars";
+			};
+			name = Release;
+		};
+		C36B4AB81B786D120040FDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ChoreWarsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = madebydouglas.ChoreWarsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ChoreWars;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C36B4AB91B786D120040FDF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ChoreWarsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = madebydouglas.ChoreWarsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ChoreWars;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C36B4A7C1B786D110040FDF0 /* Build configuration list for PBXProject "ChoreWars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C36B4AAF1B786D120040FDF0 /* Debug */,
+				C36B4AB01B786D120040FDF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C36B4AB11B786D120040FDF0 /* Build configuration list for PBXNativeTarget "ChoreWars" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C36B4AB21B786D120040FDF0 /* Debug */,
+				C36B4AB31B786D120040FDF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C36B4AB41B786D120040FDF0 /* Build configuration list for PBXNativeTarget "ChoreWarsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C36B4AB51B786D120040FDF0 /* Debug */,
+				C36B4AB61B786D120040FDF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C36B4AB71B786D120040FDF0 /* Build configuration list for PBXNativeTarget "ChoreWarsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C36B4AB81B786D120040FDF0 /* Debug */,
+				C36B4AB91B786D120040FDF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C36B4A901B786D120040FDF0 /* ChoreWars.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C36B4A911B786D120040FDF0 /* ChoreWars.xcdatamodel */,
+			);
+			currentVersion = C36B4A911B786D120040FDF0 /* ChoreWars.xcdatamodel */;
+			path = ChoreWars.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C36B4A791B786D110040FDF0 /* Project object */;
+}
