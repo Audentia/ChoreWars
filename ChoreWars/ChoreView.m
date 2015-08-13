@@ -21,9 +21,9 @@
     if (self) {
         self.backgroundColor = [UIColor blackColor];
         
-        CAShapeLayer *circleLayer = [CAShapeLayer layer];
-        [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:frame] CGPath]];
-        [[self layer] addSublayer:circleLayer];
+//        CAShapeLayer *circleLayer = [CAShapeLayer layer];
+//        [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:frame] CGPath]];
+//        [[self layer] addSublayer:circleLayer];
 
 
         UIPanGestureRecognizer *moveChoreView = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didPanChore:)];
