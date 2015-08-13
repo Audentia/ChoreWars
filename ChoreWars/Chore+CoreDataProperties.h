@@ -15,17 +15,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Chore (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *name;
-@property (nullable, nonatomic, retain) NSString *moreInfo;
-@property (nullable, nonatomic, retain) NSNumber *isComplete;
 @property (nullable, nonatomic, retain) NSDate *assignDate;
 @property (nullable, nonatomic, retain) NSDate *completeDate;
 @property (nullable, nonatomic, retain) NSDate *confirmDate;
-@property (nullable, nonatomic, retain) NSNumber *isConfirmed;
 @property (nullable, nonatomic, retain) NSNumber *isAssigned;
+@property (nullable, nonatomic, retain) NSNumber *isComplete;
+@property (nullable, nonatomic, retain) NSNumber *isConfirmed;
+@property (nullable, nonatomic, retain) NSString *moreInfo;
+@property (nullable, nonatomic, retain) NSString *name;
+@property (nullable, nonatomic, retain) Team *opposingTeam;
 @property (nullable, nonatomic, retain) Roommate *roommate;
 @property (nullable, nonatomic, retain) Team *team;
-@property (nullable, nonatomic, retain) Team *opposingTeam;
 
 @end
 

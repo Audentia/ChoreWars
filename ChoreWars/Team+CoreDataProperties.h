@@ -15,13 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Team (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *name;
-@property (nullable, nonatomic, retain) NSNumber *inCompetition;
 @property (nullable, nonatomic, retain) NSNumber *didWin;
+@property (nullable, nonatomic, retain) NSNumber *inCompetition;
+@property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSSet<Chore *> *choresToWin;
 @property (nullable, nonatomic, retain) NSSet<Competition *> *competitions;
-@property (nullable, nonatomic, retain) NSSet<Roommate *> *participants;
 @property (nullable, nonatomic, retain) NSSet<Chore *> *opposingChoresToConfirm;
+@property (nullable, nonatomic, retain) NSSet<Roommate *> *participants;
 
 @end
 
@@ -37,15 +37,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addCompetitions:(NSSet<Competition *> *)values;
 - (void)removeCompetitions:(NSSet<Competition *> *)values;
 
-- (void)addParticipantsObject:(Roommate *)value;
-- (void)removeParticipantsObject:(Roommate *)value;
-- (void)addParticipants:(NSSet<Roommate *> *)values;
-- (void)removeParticipants:(NSSet<Roommate *> *)values;
-
 - (void)addOpposingChoresToConfirmObject:(Chore *)value;
 - (void)removeOpposingChoresToConfirmObject:(Chore *)value;
 - (void)addOpposingChoresToConfirm:(NSSet<Chore *> *)values;
 - (void)removeOpposingChoresToConfirm:(NSSet<Chore *> *)values;
+
+- (void)addParticipantsObject:(Roommate *)value;
+- (void)removeParticipantsObject:(Roommate *)value;
+- (void)addParticipants:(NSSet<Roommate *> *)values;
+- (void)removeParticipants:(NSSet<Roommate *> *)values;
 
 @end
 

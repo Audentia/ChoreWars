@@ -15,11 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Roommate (CoreDataProperties)
 
+@property (nullable, nonatomic, retain) NSString *email;
+@property (nullable, nonatomic, retain) NSString *facebook;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSString *phoneNumber;
-@property (nullable, nonatomic, retain) NSString *email;
 @property (nullable, nonatomic, retain) NSData *profilePhoto;
-@property (nullable, nonatomic, retain) NSString *facebook;
 @property (nullable, nonatomic, retain) NSSet<Chore *> *completedChores;
 @property (nullable, nonatomic, retain) NSSet<Team *> *teams;
 
