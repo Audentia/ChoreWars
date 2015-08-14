@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *isComplete;
 @property (nullable, nonatomic, retain) NSNumber *isConfirmed;
 @property (nullable, nonatomic, retain) NSString *moreInfo;
-@property (nullable, nonatomic, retain) NSString *name;
+@property (nullable, nonatomic, retain) NSString *nameChore;
 @property (nullable, nonatomic, retain) Team *opposingTeam;
 @property (nullable, nonatomic, retain) Roommate *roommate;
 @property (nullable, nonatomic, retain) Team *team;
