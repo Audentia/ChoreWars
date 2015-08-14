@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C312061E1B7D3C37003DC83B /* Competition.m in Sources */ = {isa = PBXBuildFile; fileRef = C31206141B7D3C37003DC83B /* Competition.m */; };
-		C312061F1B7D3C37003DC83B /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = C31206171B7D3C37003DC83B /* Chore.m */; };
-		C31206201B7D3C37003DC83B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = C312061A1B7D3C37003DC83B /* Team.m */; };
-		C31206211B7D3C37003DC83B /* Roommate.m in Sources */ = {isa = PBXBuildFile; fileRef = C312061D1B7D3C37003DC83B /* Roommate.m */; };
 		C31AC8AA1B7D311F0077F20B /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AC8A91B7D311F0077F20B /* CoreDataManager.m */; };
 		C36B4A861B786D120040FDF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A851B786D120040FDF0 /* main.m */; };
 		C36B4A891B786D120040FDF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A881B786D120040FDF0 /* AppDelegate.m */; };
@@ -22,6 +18,11 @@
 		C36B4AA21B786D120040FDF0 /* ChoreWarsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4AA11B786D120040FDF0 /* ChoreWarsTests.m */; };
 		C36B4AAD1B786D120040FDF0 /* ChoreWarsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4AAC1B786D120040FDF0 /* ChoreWarsUITests.m */; };
 		C36B4ABC1B786FEE0040FDF0 /* ChoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4ABB1B786FEE0040FDF0 /* ChoreView.m */; };
+		C3DFF0741B79950500FFF6E6 /* Roommate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DFF06A1B79950500FFF6E6 /* Roommate.m */; };
+		C3DFF0751B79950500FFF6E6 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DFF06D1B79950500FFF6E6 /* Team.m */; };
+		C3DFF0761B79950500FFF6E6 /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DFF0701B79950500FFF6E6 /* Chore.m */; };
+		C3DFF0771B79950500FFF6E6 /* Competition.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DFF0731B79950500FFF6E6 /* Competition.m */; };
+		C3DFF07A1B79962500FFF6E6 /* Chore+Convienence.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DFF0791B79962500FFF6E6 /* Chore+Convienence.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,18 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C31206121B7D3C37003DC83B /* Competition+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Competition+CoreDataProperties.h"; path = "ChoreWars/Competition+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C31206131B7D3C37003DC83B /* Competition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Competition.h; path = ChoreWars/Competition.h; sourceTree = "<group>"; };
-		C31206141B7D3C37003DC83B /* Competition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Competition.m; path = ChoreWars/Competition.m; sourceTree = "<group>"; };
-		C31206151B7D3C37003DC83B /* Chore+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Chore+CoreDataProperties.h"; path = "ChoreWars/Chore+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C31206161B7D3C37003DC83B /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chore.h; path = ChoreWars/Chore.h; sourceTree = "<group>"; };
-		C31206171B7D3C37003DC83B /* Chore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Chore.m; path = ChoreWars/Chore.m; sourceTree = "<group>"; };
-		C31206181B7D3C37003DC83B /* Team+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Team+CoreDataProperties.h"; path = "ChoreWars/Team+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C31206191B7D3C37003DC83B /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Team.h; path = ChoreWars/Team.h; sourceTree = "<group>"; };
-		C312061A1B7D3C37003DC83B /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Team.m; path = ChoreWars/Team.m; sourceTree = "<group>"; };
-		C312061B1B7D3C37003DC83B /* Roommate+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Roommate+CoreDataProperties.h"; path = "ChoreWars/Roommate+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C312061C1B7D3C37003DC83B /* Roommate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Roommate.h; path = ChoreWars/Roommate.h; sourceTree = "<group>"; };
-		C312061D1B7D3C37003DC83B /* Roommate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Roommate.m; path = ChoreWars/Roommate.m; sourceTree = "<group>"; };
 		C31AC8A81B7D311F0077F20B /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = ChoreWars/CoreDataManager.h; sourceTree = "<group>"; };
 		C31AC8A91B7D311F0077F20B /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = ChoreWars/CoreDataManager.m; sourceTree = "<group>"; };
 		C36B4A811B786D120040FDF0 /* ChoreWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChoreWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +64,20 @@
 		C36B4AAE1B786D120040FDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C36B4ABA1B786FEE0040FDF0 /* ChoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreView.h; sourceTree = "<group>"; };
 		C36B4ABB1B786FEE0040FDF0 /* ChoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreView.m; sourceTree = "<group>"; };
+		C3DFF0681B79950500FFF6E6 /* Roommate+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Roommate+CoreDataProperties.h"; path = "ChoreWars/Roommate+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C3DFF0691B79950500FFF6E6 /* Roommate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Roommate.h; path = ChoreWars/Roommate.h; sourceTree = "<group>"; };
+		C3DFF06A1B79950500FFF6E6 /* Roommate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Roommate.m; path = ChoreWars/Roommate.m; sourceTree = "<group>"; };
+		C3DFF06B1B79950500FFF6E6 /* Team+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Team+CoreDataProperties.h"; path = "ChoreWars/Team+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C3DFF06C1B79950500FFF6E6 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Team.h; path = ChoreWars/Team.h; sourceTree = "<group>"; };
+		C3DFF06D1B79950500FFF6E6 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Team.m; path = ChoreWars/Team.m; sourceTree = "<group>"; };
+		C3DFF06E1B79950500FFF6E6 /* Chore+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Chore+CoreDataProperties.h"; path = "ChoreWars/Chore+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C3DFF06F1B79950500FFF6E6 /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chore.h; path = ChoreWars/Chore.h; sourceTree = "<group>"; };
+		C3DFF0701B79950500FFF6E6 /* Chore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Chore.m; path = ChoreWars/Chore.m; sourceTree = "<group>"; };
+		C3DFF0711B79950500FFF6E6 /* Competition+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Competition+CoreDataProperties.h"; path = "ChoreWars/Competition+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C3DFF0721B79950500FFF6E6 /* Competition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Competition.h; path = ChoreWars/Competition.h; sourceTree = "<group>"; };
+		C3DFF0731B79950500FFF6E6 /* Competition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Competition.m; path = ChoreWars/Competition.m; sourceTree = "<group>"; };
+		C3DFF0781B79962500FFF6E6 /* Chore+Convienence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Chore+Convienence.h"; path = "ChoreWars/Chore+Convienence.h"; sourceTree = "<group>"; };
+		C3DFF0791B79962500FFF6E6 /* Chore+Convienence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Chore+Convienence.m"; path = "ChoreWars/Chore+Convienence.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,20 +108,22 @@
 		C36B4A781B786D110040FDF0 = {
 			isa = PBXGroup;
 			children = (
-				C31206121B7D3C37003DC83B /* Competition+CoreDataProperties.h */,
-				C31206131B7D3C37003DC83B /* Competition.h */,
-				C31206141B7D3C37003DC83B /* Competition.m */,
-				C31206151B7D3C37003DC83B /* Chore+CoreDataProperties.h */,
-				C31206161B7D3C37003DC83B /* Chore.h */,
-				C31206171B7D3C37003DC83B /* Chore.m */,
-				C31206181B7D3C37003DC83B /* Team+CoreDataProperties.h */,
-				C31206191B7D3C37003DC83B /* Team.h */,
-				C312061A1B7D3C37003DC83B /* Team.m */,
-				C312061B1B7D3C37003DC83B /* Roommate+CoreDataProperties.h */,
-				C312061C1B7D3C37003DC83B /* Roommate.h */,
-				C312061D1B7D3C37003DC83B /* Roommate.m */,
+				C3DFF0681B79950500FFF6E6 /* Roommate+CoreDataProperties.h */,
+				C3DFF0691B79950500FFF6E6 /* Roommate.h */,
+				C3DFF06A1B79950500FFF6E6 /* Roommate.m */,
+				C3DFF06B1B79950500FFF6E6 /* Team+CoreDataProperties.h */,
+				C3DFF06C1B79950500FFF6E6 /* Team.h */,
+				C3DFF06D1B79950500FFF6E6 /* Team.m */,
+				C3DFF06E1B79950500FFF6E6 /* Chore+CoreDataProperties.h */,
+				C3DFF06F1B79950500FFF6E6 /* Chore.h */,
+				C3DFF0701B79950500FFF6E6 /* Chore.m */,
+				C3DFF0711B79950500FFF6E6 /* Competition+CoreDataProperties.h */,
+				C3DFF0721B79950500FFF6E6 /* Competition.h */,
+				C3DFF0731B79950500FFF6E6 /* Competition.m */,
 				C31AC8A81B7D311F0077F20B /* CoreDataManager.h */,
 				C31AC8A91B7D311F0077F20B /* CoreDataManager.m */,
+				C3DFF0781B79962500FFF6E6 /* Chore+Convienence.h */,
+				C3DFF0791B79962500FFF6E6 /* Chore+Convienence.m */,
 				C36B4A901B786D120040FDF0 /* ChoreWars.xcdatamodeld */,
 				C36B4A831B786D120040FDF0 /* ChoreWars */,
 				C36B4AA01B786D120040FDF0 /* ChoreWarsTests */,
@@ -314,13 +319,14 @@
 				C36B4A921B786D120040FDF0 /* ChoreWars.xcdatamodeld in Sources */,
 				C36B4A8C1B786D120040FDF0 /* ViewController.m in Sources */,
 				C36B4A891B786D120040FDF0 /* AppDelegate.m in Sources */,
-				C312061F1B7D3C37003DC83B /* Chore.m in Sources */,
-				C31206201B7D3C37003DC83B /* Team.m in Sources */,
+				C3DFF0761B79950500FFF6E6 /* Chore.m in Sources */,
 				C31AC8AA1B7D311F0077F20B /* CoreDataManager.m in Sources */,
-				C312061E1B7D3C37003DC83B /* Competition.m in Sources */,
 				C36B4A861B786D120040FDF0 /* main.m in Sources */,
 				C36B4ABC1B786FEE0040FDF0 /* ChoreView.m in Sources */,
-				C31206211B7D3C37003DC83B /* Roommate.m in Sources */,
+				C3DFF0771B79950500FFF6E6 /* Competition.m in Sources */,
+				C3DFF0751B79950500FFF6E6 /* Team.m in Sources */,
+				C3DFF0741B79950500FFF6E6 /* Roommate.m in Sources */,
+				C3DFF07A1B79962500FFF6E6 /* Chore+Convienence.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  Chore.m
+//  Chore+Convienence.h
 //  ChoreWars
 //
 //  Created by Douglas Hewitt on 8/10/15.
@@ -7,11 +7,7 @@
 //
 
 #import "Chore.h"
-#import "Roommate.h"
-#import "Team.h"
 
-@implementation Chore
-
-// Insert code here to add functionality to your managed object subclass
+@interface Chore (Convienence)
 
 @end
