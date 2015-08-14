@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Competition (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *nameCompetition;
+@property (nullable, nonatomic, retain) NSDate *creationDate;
+@property (nullable, nonatomic, retain) NSDate *completionDate;
 @property (nullable, nonatomic, retain) NSSet<Team *> *teams;
 
 @end

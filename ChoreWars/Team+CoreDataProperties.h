@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Team (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSNumber *didWin;
-@property (nullable, nonatomic, retain) NSNumber *inCompetition;
 @property (nullable, nonatomic, retain) NSString *nameTeam;
 @property (nullable, nonatomic, retain) NSSet<Chore *> *choresToWin;
 @property (nullable, nonatomic, retain) NSSet<Competition *> *competitions;

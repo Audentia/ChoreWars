@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *email;
 @property (nullable, nonatomic, retain) NSString *nameRoommate;
 @property (nullable, nonatomic, retain) NSString *phoneNumber;
+@property (nullable, nonatomic, retain) NSData *profilePicture;
 @property (nullable, nonatomic, retain) NSSet<Chore *> *completedChores;
 @property (nullable, nonatomic, retain) NSSet<Team *> *teams;
 

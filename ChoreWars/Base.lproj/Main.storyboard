@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="15A244d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="15A244d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QOK-Sq-eGM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="hF8-EH-S5G">
+            <objects>
+                <viewController id="RxV-gM-pMJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ho0-FU-kHy"/>
+                        <viewControllerLayoutGuide type="bottom" id="SFJ-ae-hq1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KVG-Y9-BgY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lA2-SB-8dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763" y="851"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -16,67 +35,108 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCW-bq-DWy">
-                                <rect key="frame" x="171" y="267" width="258" height="138"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8om-kP-y8V">
+                                <rect key="frame" x="166" y="342" width="268" height="114"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="Wage War"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="268" id="VLi-EN-T7o"/>
+                                    <constraint firstAttribute="height" constant="114" id="m6x-LF-g5E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Assemble Armies"/>
+                                <connections>
+                                    <segue destination="RxV-gM-pMJ" kind="show" id="fDH-hk-5UQ"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chore Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fe-6X-Dks">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Chore Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fe-6X-Dks">
                                 <rect key="frame" x="145" y="72" width="310" height="111"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="D29-Pc-5I5"/>
+                                    <constraint firstAttribute="width" constant="310" id="ej3-Eh-MOF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8om-kP-y8V">
-                                <rect key="frame" x="176" y="440" width="268" height="114"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZC-f2-jh0">
+                                <rect key="frame" x="162" y="474" width="277" height="51"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Assemble Armies"/>
+                                <state key="normal" title="View the Current Competition"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKK-5j-a17">
+                                <rect key="frame" x="217" y="533" width="167" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Revisit Past Competition"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCW-bq-DWy">
+                                <rect key="frame" x="171" y="208" width="258" height="138"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="258" id="43C-UP-ssm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Wage War"/>
                                 <connections>
-                                    <segue destination="ckE-Gu-xmT" kind="show" id="lmu-nI-8jA"/>
+                                    <segue destination="fyn-zZ-Awz" kind="show" id="hsc-F6-RFc"/>
                                 </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7fe-6X-Dks" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="52" id="1TC-RG-3qF"/>
+                            <constraint firstItem="TCW-bq-DWy" firstAttribute="centerX" secondItem="8om-kP-y8V" secondAttribute="centerX" id="OP3-Yo-MrT"/>
+                            <constraint firstItem="8om-kP-y8V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X22-N6-Mb8"/>
+                            <constraint firstItem="TCW-bq-DWy" firstAttribute="centerX" secondItem="7fe-6X-Dks" secondAttribute="centerX" id="XfC-5L-FJf"/>
+                            <constraint firstItem="8om-kP-y8V" firstAttribute="top" secondItem="TCW-bq-DWy" secondAttribute="bottom" constant="35" id="gaf-K0-3Kn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8om-kP-y8V" secondAttribute="bottom" constant="46" id="u4e-jE-9s3"/>
+                            <constraint firstItem="TCW-bq-DWy" firstAttribute="top" secondItem="7fe-6X-Dks" secondAttribute="bottom" constant="84" id="zsd-wx-r2g"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zcX-ia-SJf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="338"/>
+            <point key="canvasLocation" x="822" y="142"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="J36-DU-Q1B">
+        <!--View Controller-->
+        <scene sceneID="bDo-Pf-cto">
             <objects>
-                <tableViewController id="ckE-Gu-xmT" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vHG-yw-fjA">
+                <viewController id="fyn-zZ-Awz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="khJ-C4-jlk"/>
+                        <viewControllerLayoutGuide type="bottom" id="lbu-Kw-eDV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O7x-Md-0Su">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uTD-O5-Uef">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uTD-O5-Uef" id="S69-y4-FOu">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ckE-Gu-xmT" id="o9h-Ut-1FZ"/>
-                            <outlet property="delegate" destination="ckE-Gu-xmT" id="GXX-nl-erw"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eUc-B0-fPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HAu-SW-qBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="338"/>
+            <point key="canvasLocation" x="1516" y="228"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Pk4-oU-cTB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QOK-Sq-eGM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tDJ-7D-g1Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7mJ-gH-qwN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Cj-ae-YKC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10" y="142"/>
         </scene>
     </scenes>
 </document>

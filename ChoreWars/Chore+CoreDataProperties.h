@@ -18,9 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSDate *assignDate;
 @property (nullable, nonatomic, retain) NSDate *completeDate;
 @property (nullable, nonatomic, retain) NSDate *confirmDate;
-@property (nullable, nonatomic, retain) NSNumber *isAssigned;
-@property (nullable, nonatomic, retain) NSNumber *isComplete;
-@property (nullable, nonatomic, retain) NSNumber *isConfirmed;
 @property (nullable, nonatomic, retain) NSString *moreInfo;
 @property (nullable, nonatomic, retain) NSString *nameChore;
 @property (nullable, nonatomic, retain) Team *opposingTeam;
