@@ -17,6 +17,8 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+- (void)saveDataForItem:(id)detailItem WithName:(NSString *)name WithPhone:(NSString *)phone AndEmail:(NSString *)email;
+
 
 + (instancetype) sharedInstance;
 

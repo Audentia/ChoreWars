@@ -99,4 +99,41 @@
     }
 }
 
+- (void)saveDataForItem:(id)detailItem WithName:(NSString *)name WithPhone:(NSString *)phone AndEmail:(NSString *)email {
+    //    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (detailItem) {
+        if (![[detailItem valueForKey:@"nameRoommate"] isEqualToString:name] || ![[detailItem valueForKey:@"phoneNumber"] isEqualToString:phone] || ![[detailItem valueForKey:@"email"] isEqualToString:email]) {
+            [detailItem setValue:name forKey:@"nameRoommate"];
+            [detailItem setValue:phone forKey:@"phoneNumber"];
+            [detailItem setValue:email forKey:@"email"];
+//            [detailItem setValue:[NSDate date] forKey:@"timeStamp"];
+            
+            NSError *error;
+            [context save:&error];
+        } else {
+            // do nothing
+            NSLog(@"No changes to existing note, will not save");
+        }
+        
+        
+        
+        
+    } else if (name.length == 0 && phone.length == 0 && email.length == 0) {
+        //do nothing
+        NSLog(@"blank roommate, will not save");
+    } else {
+        NSManagedObject *newRoommate = [NSEntityDescription insertNewObjectForEntityForName:@"Roommate" inManagedObjectContext:context];
+        [newRoommate setValue:name forKey:@"nameRoommate"];
+        [newRoommate setValue:phone forKey:@"phoneNumber"];
+        [newRoommate setValue:email forKey:@"email"];
+//        [newRoommate setValue: [NSDate date] forKey:@"timeStamp"];
+        
+        NSError *error;
+        [context save:&error];
+    }
+    
+}
+
 @end

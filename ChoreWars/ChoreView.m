@@ -19,7 +19,7 @@
 - (id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor redColor];
         
 //        CAShapeLayer *circleLayer = [CAShapeLayer layer];
 //        [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:frame] CGPath]];

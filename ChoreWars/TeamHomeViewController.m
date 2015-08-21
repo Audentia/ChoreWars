@@ -6,14 +6,14 @@
 //  Copyright © 2015 madebydouglas. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TeamHomeViewController.h"
 #import "ChoreView.h"
 
-@interface ViewController ()
+@interface TeamHomeViewController ()
 
 @end
 
-@implementation ViewController
+@implementation TeamHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
