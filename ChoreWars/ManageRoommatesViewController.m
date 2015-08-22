@@ -15,6 +15,7 @@
 @interface ManageRoommatesViewController ()
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedRoommates;
+@property (nonatomic, strong) NSMutableArray *roommateViewsArray;
 
 @end
 
@@ -24,18 +25,35 @@
     [super viewDidLoad];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Roommate" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nameRoommate" ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
     [fetchRequest setEntity:entity];
     
        self.fetchedRoommates = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.fetchedRoommates performFetch:nil];
-    
+    [self.fetchedRoommates performFetch:NULL];
+    NSLog(@"fetched roommates: %lu", self.fetchedRoommates.fetchedObjects.count);
     for (Roommate *roommate in self.fetchedRoommates.fetchedObjects) {
-        RoommateView *newRoommate = [[RoommateView alloc] initWithFrame:CGRectMake(1, 1, 10, 10)];
+        RoommateView *newRoommate = [[RoommateView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50)];
         newRoommate.roommate = roommate;
+        newRoommate.backgroundColor = [UIColor redColor];
+        [self.view addSubview:newRoommate];
+        [self.view bringSubviewToFront:newRoommate];
+        [self.roommateViewsArray addObject:newRoommate];
+        NSLog(@"Made a roommateView");
     }
+}
+
+
+
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
 }
 
 - (void)didReceiveMemoryWarning {

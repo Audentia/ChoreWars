@@ -114,7 +114,7 @@
             [context save:&error];
         } else {
             // do nothing
-            NSLog(@"No changes to existing note, will not save");
+            NSLog(@"No changes to existing roommate, will not save");
         }
         
         

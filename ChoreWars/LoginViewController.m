@@ -7,7 +7,6 @@
 //
 
 #import "LoginViewController.h"
-#import "ManageRoommatesViewController.h"
 #import "CoreDataManager.h"
 #import "Team.h"
 
@@ -28,13 +27,20 @@
     Team *teamB = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
     teamB.nameTeam = @"TeamB";
     teamB.didWin = 0;
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nameTeam" ascending:YES];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
     [fetchRequest setEntity:entity];
+    
     self.fetchedTeams = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.fetchedTeams performFetch:nil];
+    [self.fetchedTeams performFetch:NULL];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
