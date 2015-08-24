@@ -9,7 +9,7 @@
 #import "NewRoommateViewController.h"
 #import "CoreDataManager.h"
 
-@interface NewRoommateViewController ()
+@interface NewRoommateViewController () <NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -27,6 +27,10 @@
     
 [[CoreDataManager sharedInstance] saveDataForItem:_detailItem WithName:_nameTextField.text WithPhone:_phoneTextField.text AndEmail:_emailTextField.text
  ];
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [controller performFetch:NULL];
 }
 
 - (void)didReceiveMemoryWarning {

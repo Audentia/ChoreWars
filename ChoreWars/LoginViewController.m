@@ -20,13 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Team" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
-    Team *teamA = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
-    teamA.nameTeam = @"TeamA";
-    teamA.didWin = 0;
-    Team *teamB = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
-    teamB.nameTeam = @"TeamB";
-    teamB.didWin = 0;
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 
@@ -37,6 +32,19 @@
     [fetchRequest setEntity:entity];
     
     self.fetchedTeams = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    [self.fetchedTeams performFetch:NULL];
+
+    if (self.fetchedTeams.fetchedObjects.count == 0) {
+        static dispatch_once_t once;
+        dispatch_once(&once, ^ {
+            Team *teamA = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
+            teamA.nameTeam = @"TeamA";
+            teamA.didWin = 0;
+            Team *teamB = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
+            teamB.nameTeam = @"TeamB";
+            teamB.didWin = 0;
+        });
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,7 +61,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"teamCell" forIndexPath:indexPath];
     Team *team = [self.fetchedTeams.fetchedObjects objectAtIndex:indexPath.row];
     cell.textLabel.text = team.nameTeam;
-
 
     return cell;
 }

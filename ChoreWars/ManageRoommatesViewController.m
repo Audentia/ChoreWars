@@ -9,13 +9,13 @@
 #import "ManageRoommatesViewController.h"
 #import "TeamView.h"
 #import "RoommateView.h"
-#import "CoreDataManager.h"
 #import "Roommate.h"
+#import "CoreDataManager.h"
 
-@interface ManageRoommatesViewController ()
+@interface ManageRoommatesViewController () <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, strong) NSFetchedResultsController *fetchedRoommates;
 @property (nonatomic, strong) NSMutableArray *roommateViewsArray;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedRoommates;
 
 @end
 
@@ -49,7 +49,10 @@
     }
 }
 
-
+//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+//    self.fetchedRoommates = controller;
+//    [self.fetchedRoommates performFetch:NULL];
+//}
 
 
 - (void)viewDidDisappear:(BOOL)animated {
