@@ -11,6 +11,7 @@
 #import "RoommateView.h"
 #import "Roommate.h"
 #import "CoreDataManager.h"
+#import "TrashView.h"
 
 @interface ManageRoommatesViewController () <NSFetchedResultsControllerDelegate>
 
@@ -23,6 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.fetchedRoommates.delegate = self;
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Roommate" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
     
@@ -36,23 +39,25 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    TrashView *trash = [[TrashView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 35, 64, 70, 70)];
+    [trash setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:trash];
+    
     [self.fetchedRoommates performFetch:NULL];
     NSLog(@"fetched roommates: %lu", self.fetchedRoommates.fetchedObjects.count);
-    for (Roommate *roommate in self.fetchedRoommates.fetchedObjects) {
-        RoommateView *newRoommate = [[RoommateView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50)];
-        newRoommate.roommate = roommate;
-        newRoommate.backgroundColor = [UIColor redColor];
-        [self.view addSubview:newRoommate];
-        [self.view bringSubviewToFront:newRoommate];
-        [self.roommateViewsArray addObject:newRoommate];
-        NSLog(@"Made a roommateView");
+    for (Roommate *eachRoommate in self.fetchedRoommates.fetchedObjects) {
+        RoommateView *newRoommateView = [[RoommateView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:eachRoommate];
+        [self.view addSubview:newRoommateView];
+        [self.view bringSubviewToFront:newRoommateView];
+        [self.roommateViewsArray addObject:newRoommateView];
+        NSLog(@"Made a roommateView for %@", eachRoommate.nameRoommate);
     }
 }
 
-//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-//    self.fetchedRoommates = controller;
-//    [self.fetchedRoommates performFetch:NULL];
-//}
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    self.fetchedRoommates = controller;
+    [self.fetchedRoommates performFetch:NULL];
+}
 
 
 - (void)viewDidDisappear:(BOOL)animated {

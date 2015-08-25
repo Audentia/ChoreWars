@@ -1,20 +1,14 @@
 //
-//  RoommateView.m
+//  TrashView.m
 //  ChoreWars
 //
-//  Created by Douglas Hewitt on 8/19/15.
+//  Created by Douglas Hewitt on 8/24/15.
 //  Copyright © 2015 madebydouglas. All rights reserved.
 //
 
-#import "RoommateView.h"
+#import "TrashView.h"
 
-@implementation RoommateView
-
-
-- (void) configureNameLabel {
-    self.roommate = self.entity;
-    self.nameLabel.text = self.roommate.nameRoommate;
-}
+@implementation TrashView
 
 /*
 // Only override drawRect: if you perform custom drawing.

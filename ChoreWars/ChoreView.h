@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Chore.h"
 
 @interface ChoreView : UIView
 
 @property CGPoint lastLocation;
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) id entity;
+@property (nonatomic, strong) Chore *chore;
+
+- (id) initWithFrame:(CGRect)frame andEntity:(id)entity;
+
 
 @end
