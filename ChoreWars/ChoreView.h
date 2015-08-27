@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Chore.h"
 
+@class ChoreView;
+
+@protocol ChoreViewDelegate <NSObject>
+
+- (void) choreView:(ChoreView *)choreView didMoveToPoint:(CGPoint)point;
+- (void) choreViewDidLongPress:(ChoreView *)choreView;
+
+@end
+
 @interface ChoreView : UIView
 
 @property CGPoint lastLocation;
@@ -17,6 +26,8 @@
 @property (nonatomic, strong) Chore *chore;
 
 - (id) initWithFrame:(CGRect)frame andEntity:(id)entity;
+
+@property (nonatomic, weak) id <ChoreViewDelegate> delegate;
 
 
 @end

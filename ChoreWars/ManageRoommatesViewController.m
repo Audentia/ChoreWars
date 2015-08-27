@@ -13,10 +13,14 @@
 #import "CoreDataManager.h"
 #import "TrashView.h"
 
-@interface ManageRoommatesViewController () <NSFetchedResultsControllerDelegate>
+@interface ManageRoommatesViewController () <NSFetchedResultsControllerDelegate, ChoreViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *roommateViewsArray;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedRoommates;
+@property CGPoint roommateOriginalCenter;
+@property (nonatomic, strong) TrashView *trashView;
+@property (nonatomic, strong) TeamView *teamView;
+
 
 @end
 
@@ -24,7 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.fetchedRoommates.delegate = self;
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Roommate" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
@@ -36,32 +39,86 @@
     [fetchRequest setEntity:entity];
     
        self.fetchedRoommates = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    TrashView *trash = [[TrashView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 35, 64, 70, 70)];
-    [trash setBackgroundColor:[UIColor blackColor]];
-    [self.view addSubview:trash];
+    self.fetchedRoommates.delegate = self;
     
     [self.fetchedRoommates performFetch:NULL];
     NSLog(@"fetched roommates: %lu", self.fetchedRoommates.fetchedObjects.count);
+    [self createRoommateViews];
+    [self createTeamViews];
+    
+}
+
+- (void) createTeamViews {
+    CGFloat widthForTwoTeams = self.view.frame.size.width / 2;
+    CGFloat initialX = 0;
+    for (int i = 0; i <= 1; i++) {
+        self.teamView = [[TeamView alloc] initWithFrame:CGRectMake(initialX, self.view.frame.size.height - 200, widthForTwoTeams, 200)];
+        initialX = initialX + widthForTwoTeams;
+        self.teamView.backgroundColor = [UIColor blueColor];
+        self.teamView.layer.borderColor = [UIColor blackColor].CGColor;
+        self.teamView.layer.borderWidth = 2.0f;
+        [self.view addSubview:self.teamView];
+    }
+}
+
+- (void)createRoommateViews {
     for (Roommate *eachRoommate in self.fetchedRoommates.fetchedObjects) {
         RoommateView *newRoommateView = [[RoommateView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:eachRoommate];
         [self.view addSubview:newRoommateView];
         [self.view bringSubviewToFront:newRoommateView];
         [self.roommateViewsArray addObject:newRoommateView];
+        newRoommateView.delegate = self;
         NSLog(@"Made a roommateView for %@", eachRoommate.nameRoommate);
     }
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    self.fetchedRoommates = controller;
-    [self.fetchedRoommates performFetch:NULL];
+- (void) toggleEditMode {
+    if (self.trashView == nil) {
+        self.trashView = [[TrashView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 35, 64, 70, 70)];
+        [self.trashView setBackgroundColor:[UIColor blackColor]];
+        [self.view addSubview:self.trashView];
+    } else {
+        [self.trashView removeFromSuperview];
+        self.trashView = nil;
+    }
+}
+
+- (void) choreViewDidLongPress:(ChoreView *)choreView {
+    [self toggleEditMode];
+}
+
+- (void) choreView:(ChoreView *)choreView didMoveToPoint:(CGPoint)point {
+    if (CGRectContainsPoint(self.trashView.frame, point)) {
+        NSLog(@"drag to trash");
+        //core data delete
+        [[CoreDataManager sharedInstance].managedObjectContext deleteObject:choreView.entity];
+        
+        NSError *error = nil;
+        if (![[CoreDataManager sharedInstance].managedObjectContext save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        [self.roommateViewsArray removeObject:choreView];
+        
+        //remove the view
+        [choreView removeFromSuperview];
+    }
+    if (CGRectContainsPoint(self.teamView, point)) {
+        NSLog(@"Assign to team: %@", )
+    }
 }
 
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [self.view.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    if (type == NSFetchedResultsChangeInsert) {
+        Roommate *aRoommate = anObject;
+        RoommateView *newRoommateView = [[RoommateView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:aRoommate];
+        [self.view addSubview:newRoommateView];
+        [self.view bringSubviewToFront:newRoommateView];
+        [self.roommateViewsArray addObject:newRoommateView];
+        newRoommateView.delegate = self;
+        NSLog(@"Made a roommateView for %@", aRoommate.nameRoommate);
+    }
 }
 
 - (void)didReceiveMemoryWarning {

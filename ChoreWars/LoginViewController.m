@@ -32,23 +32,19 @@
     [fetchRequest setEntity:entity];
     
     self.fetchedTeams = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    [self.fetchedTeams performFetch:NULL];
-
-    if (self.fetchedTeams.fetchedObjects.count == 0) {
-        static dispatch_once_t once;
-        dispatch_once(&once, ^ {
+    static dispatch_once_t once;
+    dispatch_once(&once, ^ {
+        [self.fetchedTeams performFetch:NULL];
+        if (self.fetchedTeams.fetchedObjects.count == 0) {
+            
             Team *teamA = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
             teamA.nameTeam = @"TeamA";
             teamA.didWin = 0;
             Team *teamB = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
             teamB.nameTeam = @"TeamB";
             teamB.didWin = 0;
-        });
-    }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [self.fetchedTeams performFetch:NULL];
+        }
+    });
 }
 
 - (NSInteger)tableView:(UITableView *)tableView

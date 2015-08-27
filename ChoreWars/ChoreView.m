@@ -10,7 +10,7 @@
 
 @interface ChoreView ()
 
-
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 
 @end
 
@@ -39,6 +39,9 @@
         [moveChoreView setMinimumNumberOfTouches:1];
         [moveChoreView setMaximumNumberOfTouches:1];
         [self addGestureRecognizer:moveChoreView];
+        
+        self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressChore:)];
+        [self addGestureRecognizer:self.longPressGesture];
     }
     return self;
 }
@@ -48,15 +51,29 @@
     self.nameLabel.text = self.chore.nameChore;
 }
 
+- (void) didLongPressChore:(UILongPressGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateRecognized) {
+        if ([self.delegate respondsToSelector:@selector(choreViewDidLongPress:)]){
+            [self.delegate choreViewDidLongPress:self];
+        }
+    }
+}
+
 - (void) didPanChore:(UIPanGestureRecognizer *)sender {
         CGPoint translation = [sender translationInView:self.superview];
         self.center = CGPointMake(_lastLocation.x + translation.x,
                                   _lastLocation.y + translation.y);
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (self.delegate) {
+            [self.delegate choreView:self didMoveToPoint:self.center];
+        }
+    }
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.superview bringSubviewToFront:self];
     _lastLocation = self.center;
 }
+
 
 @end
