@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedTeams;
 @property CGPoint roommateOriginalCenter;
 @property (nonatomic, strong) TrashView *trashView;
+@property (nonatomic, strong) UIView *unassignTeamsView;
 
 @end
 
@@ -62,6 +63,11 @@
 }
 
 - (void) createTeamViews {
+    self.unassignTeamsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200)];
+    self.unassignTeamsView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.unassignTeamsView];
+    [self.view sendSubviewToBack:self.unassignTeamsView];
+
     self.teamViewsArray = [NSMutableArray array];
     CGFloat widthForTeams = self.view.frame.size.width / self.fetchedTeams.fetchedObjects.count;
     CGFloat initialX = 0;
@@ -120,9 +126,17 @@
         //remove the view
         [choreView removeFromSuperview];
     }
+    if (CGRectContainsPoint(self.unassignTeamsView.frame, point)){
+        if (roommate.teams.count > 0) {
+            [roommate removeTeams:roommate.teams];
+            [[CoreDataManager sharedInstance].managedObjectContext save:NULL];
+            NSLog(@"roommate remove all teams");
+        }
+    }
+
     for (TeamView *teamView in self.teamViewsArray) {
         if (CGRectContainsPoint(teamView.frame, point)) {
-            if (roommate.teams) {
+            if (roommate.teams.count > 0) {
                 for (Team *eachTeam in roommate.teams) {
                     NSLog(@"This roommate was on team: %@", eachTeam.nameTeam);
                     if ([eachTeam.nameTeam isEqualToString:teamView.team.nameTeam]) {
@@ -138,7 +152,7 @@
                     NSLog(@"This roommate will add team: %@", teamView.team.nameTeam);
 
                 }
-                if (teamsToRemove) {
+                if (teamsToRemove.count > 0) {
                     [roommate removeTeams:teamsToRemove];
                 }
                 
