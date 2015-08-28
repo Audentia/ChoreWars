@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ViewController.h
 //  ChoreWars
 //
 //  Created by Douglas Hewitt on 8/9/15.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface TeamHomeViewController : UIViewController
 
-@property (strong, nonatomic) UIWindow *window;
 
 @end
 

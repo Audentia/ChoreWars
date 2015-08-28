@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8175.2" systemVersion="15A244d" minimumToolsVersion="Automatic">
+    <entity name="Chore" representedClassName="Chore" syncable="YES">
+        <attribute name="assignDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="completeDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="confirmDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="moreInfo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameChore" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="opposingTeam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="opposingChoresToConfirm" inverseEntity="Team" syncable="YES"/>
+        <relationship name="roommate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Roommate" inverseName="completedChores" inverseEntity="Roommate" syncable="YES"/>
+        <relationship name="team" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="choresToWin" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Competition" representedClassName="Competition" syncable="YES">
+        <attribute name="completionDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="nameCompetition" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="competitions" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Roommate" representedClassName="Roommate" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameRoommate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePicture" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="completedChores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Chore" inverseName="roommate" inverseEntity="Chore" syncable="YES"/>
+        <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="participants" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Team" representedClassName="Team" syncable="YES">
+        <attribute name="didWin" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="nameTeam" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="choresToWin" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Chore" inverseName="team" inverseEntity="Chore" syncable="YES"/>
+        <relationship name="competitions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Competition" inverseName="teams" inverseEntity="Competition" syncable="YES"/>
+        <relationship name="opposingChoresToConfirm" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Chore" inverseName="opposingTeam" inverseEntity="Chore" syncable="YES"/>
+        <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Roommate" inverseName="teams" inverseEntity="Roommate" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Chore" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Competition" positionX="-36" positionY="9" width="128" height="105"/>
+        <element name="Roommate" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="Team" positionX="-45" positionY="18" width="128" height="135"/>
+    </elements>
 </model>
