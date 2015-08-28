@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Team.h"
 
 @interface TeamView : UIView
 
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) id entity;
+@property (nonatomic, strong) Team *team;
+
+- (id) initWithFrame:(CGRect)frame andEntity:(id)entity;
 
 @end

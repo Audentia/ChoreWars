@@ -16,11 +16,11 @@
 @interface ManageRoommatesViewController () <NSFetchedResultsControllerDelegate, ChoreViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *roommateViewsArray;
+@property (nonatomic, strong) NSMutableArray *teamViewsArray;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedRoommates;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedTeams;
 @property CGPoint roommateOriginalCenter;
 @property (nonatomic, strong) TrashView *trashView;
-@property (nonatomic, strong) TeamView *teamView;
-
 
 @end
 
@@ -29,36 +29,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Roommate" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
+    NSFetchRequest *fetchRequestRoommate = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entityRoommate = [NSEntityDescription entityForName:@"Roommate" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nameRoommate" ascending:YES];
-    NSArray *sortDescriptors = @[sortDescriptor];
+    NSSortDescriptor *sortDescriptorRoommate = [[NSSortDescriptor alloc] initWithKey:@"nameRoommate" ascending:YES];
+    NSArray *sortDescriptorsRoommate = @[sortDescriptorRoommate];
     
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    [fetchRequest setEntity:entity];
+    [fetchRequestRoommate setSortDescriptors:sortDescriptorsRoommate];
+    [fetchRequestRoommate setEntity:entityRoommate];
     
-       self.fetchedRoommates = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+       self.fetchedRoommates = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequestRoommate managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     self.fetchedRoommates.delegate = self;
     
     [self.fetchedRoommates performFetch:NULL];
     NSLog(@"fetched roommates: %lu", self.fetchedRoommates.fetchedObjects.count);
     [self createRoommateViews];
-    [self createTeamViews];
     
+    
+    NSFetchRequest *fetchRequestTeam = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entityTeam = [NSEntityDescription entityForName:@"Team" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
+    
+    NSSortDescriptor *sortDescriptorTeam = [[NSSortDescriptor alloc] initWithKey:@"nameTeam" ascending:YES];
+    NSArray *sortDescriptorsTeam = @[sortDescriptorTeam];
+    
+    [fetchRequestTeam setSortDescriptors:sortDescriptorsTeam];
+    [fetchRequestTeam setEntity:entityTeam];
+    
+    self.fetchedTeams = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequestTeam managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    [self.fetchedTeams performFetch:NULL];
+    [self createTeamViews];
 }
 
 - (void) createTeamViews {
-    CGFloat widthForTwoTeams = self.view.frame.size.width / 2;
+    self.teamViewsArray = [NSMutableArray array];
+    CGFloat widthForTeams = self.view.frame.size.width / self.fetchedTeams.fetchedObjects.count;
     CGFloat initialX = 0;
-    for (int i = 0; i <= 1; i++) {
-        self.teamView = [[TeamView alloc] initWithFrame:CGRectMake(initialX, self.view.frame.size.height - 200, widthForTwoTeams, 200)];
-        initialX = initialX + widthForTwoTeams;
-        self.teamView.backgroundColor = [UIColor blueColor];
-        self.teamView.layer.borderColor = [UIColor blackColor].CGColor;
-        self.teamView.layer.borderWidth = 2.0f;
-        [self.view addSubview:self.teamView];
+    for (Team *eachTeam in self.fetchedTeams.fetchedObjects) {
+        TeamView *newTeamView = [[TeamView alloc] initWithFrame:CGRectMake(initialX, self.view.frame.size.height - 200, widthForTeams, 200) andEntity:eachTeam];
+        initialX = initialX + widthForTeams;
+
+        [self.view addSubview:newTeamView];
+        [self.teamViewsArray addObject:newTeamView];
     }
+
 }
 
 - (void)createRoommateViews {
@@ -88,10 +102,13 @@
 }
 
 - (void) choreView:(ChoreView *)choreView didMoveToPoint:(CGPoint)point {
+    Roommate *roommate = choreView.entity;
+    NSMutableSet *teamsToRemove = [[NSMutableSet alloc] init];
+    BOOL teamAssigned = NO;
     if (CGRectContainsPoint(self.trashView.frame, point)) {
         NSLog(@"drag to trash");
         //core data delete
-        [[CoreDataManager sharedInstance].managedObjectContext deleteObject:choreView.entity];
+        [[CoreDataManager sharedInstance].managedObjectContext deleteObject:roommate];
         
         NSError *error = nil;
         if (![[CoreDataManager sharedInstance].managedObjectContext save:&error]) {
@@ -103,8 +120,36 @@
         //remove the view
         [choreView removeFromSuperview];
     }
-    if (CGRectContainsPoint(self.teamView, point)) {
-        NSLog(@"Assign to team: %@", )
+    for (TeamView *teamView in self.teamViewsArray) {
+        if (CGRectContainsPoint(teamView.frame, point)) {
+            if (roommate.teams) {
+                for (Team *eachTeam in roommate.teams) {
+                    NSLog(@"This roommate was on team: %@", eachTeam.nameTeam);
+                    if ([eachTeam.nameTeam isEqualToString:teamView.team.nameTeam]) {
+                        teamAssigned = YES;
+                    } else {
+                        [teamsToRemove addObject:eachTeam];
+                        NSLog(@"This roommate will remove team: %@", eachTeam.nameTeam);
+
+                    }
+                }
+                if (teamAssigned == NO) {
+                    [teamView.team addParticipantsObject:roommate];
+                    NSLog(@"This roommate will add team: %@", teamView.team.nameTeam);
+
+                }
+                if (teamsToRemove) {
+                    [roommate removeTeams:teamsToRemove];
+                }
+                
+            } else {
+                [teamView.team addParticipantsObject:roommate];
+                NSLog(@"This roommate will add team: %@", teamView.team.nameTeam);
+
+            }
+            [[CoreDataManager sharedInstance].managedObjectContext save:NULL];
+            break;
+        }
     }
 }
 
