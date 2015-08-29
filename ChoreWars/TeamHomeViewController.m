@@ -19,6 +19,9 @@
     [super viewDidLoad];
 
  }
+- (IBAction)didPressLogoutButton:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -40,7 +40,7 @@
                                         <rect key="frame" x="0.0" y="28" width="240" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ot1-U9-qHa" id="HZ3-HC-aHb">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na0-oc-2FW">
@@ -59,6 +59,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="QOK-Sq-eGM" kind="show" id="aWf-CB-Fo2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -223,7 +226,13 @@
                             <constraint firstItem="TCW-bq-DWy" firstAttribute="top" secondItem="7fe-6X-Dks" secondAttribute="bottom" constant="84" id="zsd-wx-r2g"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zcX-ia-SJf"/>
+                    <navigationItem key="navigationItem" id="zcX-ia-SJf">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="vQV-5m-nLY">
+                            <connections>
+                                <action selector="didPressLogoutButton:" destination="BYZ-38-t0r" id="IIA-cW-gLv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
