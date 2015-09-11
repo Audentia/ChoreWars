@@ -7,8 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TeamView.h"
+#import "RoommateView.h"
+#import "Roommate.h"
+#import "CoreDataManager.h"
+#import "TrashView.h"
 
 @interface ManageRoommatesViewController : UIViewController
+
+- (void) toggleEditMode;
+
+@property (nonatomic, strong) TrashView *trashView;
+@property (nonatomic, strong) UIView *unassignTeamsView;
+@property (nonatomic, strong) NSMutableArray *teamViewsArray;
+
+
 
 
 @end

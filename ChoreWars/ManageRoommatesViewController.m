@@ -7,21 +7,13 @@
 //
 
 #import "ManageRoommatesViewController.h"
-#import "TeamView.h"
-#import "RoommateView.h"
-#import "Roommate.h"
-#import "CoreDataManager.h"
-#import "TrashView.h"
 
 @interface ManageRoommatesViewController () <NSFetchedResultsControllerDelegate, ChoreViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *roommateViewsArray;
-@property (nonatomic, strong) NSMutableArray *teamViewsArray;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedRoommates;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedTeams;
 @property CGPoint roommateOriginalCenter;
-@property (nonatomic, strong) TrashView *trashView;
-@property (nonatomic, strong) UIView *unassignTeamsView;
 
 @end
 
@@ -30,6 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self showRoommates];
+    [self showTeams];
+    
+}
+
+- (void) showRoommates {
     NSFetchRequest *fetchRequestRoommate = [[NSFetchRequest alloc] init];
     NSEntityDescription *entityRoommate = [NSEntityDescription entityForName:@"Roommate" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
     
@@ -39,14 +37,15 @@
     [fetchRequestRoommate setSortDescriptors:sortDescriptorsRoommate];
     [fetchRequestRoommate setEntity:entityRoommate];
     
-       self.fetchedRoommates = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequestRoommate managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedRoommates = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequestRoommate managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     self.fetchedRoommates.delegate = self;
     
     [self.fetchedRoommates performFetch:NULL];
     NSLog(@"fetched roommates: %lu", self.fetchedRoommates.fetchedObjects.count);
     [self createRoommateViews];
-    
-    
+}
+
+- (void) showTeams {
     NSFetchRequest *fetchRequestTeam = [[NSFetchRequest alloc] init];
     NSEntityDescription *entityTeam = [NSEntityDescription entityForName:@"Team" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
     
