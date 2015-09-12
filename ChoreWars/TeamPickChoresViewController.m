@@ -47,7 +47,7 @@
         [self.view bringSubviewToFront:newChoreView];
         [self.choreViewsArray addObject:newChoreView];
         newChoreView.delegate = self;
-        NSLog(@"Made a roommateView for %@", eachChore.nameChore);
+        NSLog(@"Made a roommateView for %@", eachChore.name);
     }
 }
 
@@ -85,18 +85,18 @@
     for (TeamView *teamView in self.teamViewsArray) {
         if (CGRectContainsPoint(teamView.frame, point)) {
             if (chore.team != nil) {
-                    NSLog(@"This roommate was on team: %@", chore.team.nameTeam);
-                    if ([chore.team.nameTeam isEqualToString:teamView.team.nameTeam]) {
+                    NSLog(@"This roommate was on team: %@", chore.team.name);
+                    if ([chore.team.name isEqualToString:teamView.team.name]) {
                         teamAssigned = YES;
                     } else {
                         [teamsToRemove addObject:chore.team];
-                        NSLog(@"This roommate will remove team: %@", chore.team.nameTeam);
+                        NSLog(@"This roommate will remove team: %@", chore.team.name);
                         
                     }
             
                 if (teamAssigned == NO) {
                     [teamView.team addChoresToWinObject:chore];
-                    NSLog(@"This roommate will add team: %@", teamView.team.nameTeam);
+                    NSLog(@"This roommate will add team: %@", teamView.team.name);
                     
                 }
                 if (teamsToRemove.count > 0) {
@@ -105,7 +105,7 @@
                 
             } else {
                 [teamView.team addChoresToWinObject:chore];
-                NSLog(@"This roommate will add team: %@", teamView.team.nameTeam);
+                NSLog(@"This roommate will add team: %@", teamView.team.name);
                 
             }
             [[CoreDataManager sharedInstance].managedObjectContext save:NULL];
