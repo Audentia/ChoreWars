@@ -48,7 +48,7 @@
 
 - (void) configureNameLabel {
     self.chore = self.entity;
-    self.nameLabel.text = self.chore.nameChore;
+    self.nameLabel.text = self.chore.name;
 }
 
 - (void) didLongPressChore:(UILongPressGestureRecognizer *)sender {

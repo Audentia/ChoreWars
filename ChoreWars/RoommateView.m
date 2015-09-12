@@ -12,7 +12,7 @@
 
 - (void) configureNameLabel {
     self.roommate = self.entity;
-    self.nameLabel.text = self.roommate.nameRoommate;
+    self.nameLabel.text = self.roommate.name;
 }
 
 @end

@@ -6,8 +6,8 @@
 //  Copyright © 2015 madebydouglas. All rights reserved.
 //
 
-#import "ManageRoommatesViewController.h"
+#import "ManageEntitiesViewController.h"
 
-@interface TeamPickChoresViewController : ManageRoommatesViewController
+@interface TeamPickChoresViewController : ManageEntitiesViewController
 
 @end

@@ -6,22 +6,9 @@
 //  Copyright © 2015 madebydouglas. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "TeamView.h"
-#import "RoommateView.h"
-#import "Roommate.h"
-#import "CoreDataManager.h"
-#import "TrashView.h"
+#import "ManageEntitiesViewController.h"
 
-@interface ManageRoommatesViewController : UIViewController
-
-- (void) toggleEditMode;
-
-@property (nonatomic, strong) TrashView *trashView;
-@property (nonatomic, strong) UIView *unassignTeamsView;
-@property (nonatomic, strong) NSMutableArray *teamViewsArray;
-
-
+@interface ManageRoommatesViewController : ManageEntitiesViewController
 
 
 @end
