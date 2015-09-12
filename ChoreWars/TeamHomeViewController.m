@@ -7,7 +7,7 @@
 //
 
 #import "TeamHomeViewController.h"
-#import "ChoreView.h"
+#import "EntityView.h"
 
 @interface TeamHomeViewController ()
 

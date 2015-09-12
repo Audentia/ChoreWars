@@ -8,11 +8,7 @@
 
 #import "TeamPickChoresViewController.h"
 
-@interface TeamPickChoresViewController () <NSFetchedResultsControllerDelegate, ChoreViewDelegate>
-
-@property (nonatomic, strong) NSFetchedResultsController *fetchedChores;
-@property (nonatomic, strong) NSMutableArray *choreViewsArray;
-
+@interface TeamPickChoresViewController () <NSFetchedResultsControllerDelegate, EntityViewDelegate>
 
 @end
 
@@ -20,43 +16,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self createChoreViewsFromFetch:[self fetchEntitiesWithName:@"Chore" andSortKey:@"name"]];
 }
 
-- (void) showRoommates {
-    NSFetchRequest *fetchRequestRoommate = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entityRoommate = [NSEntityDescription entityForName:@"Chore" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
-    
-    NSSortDescriptor *sortDescriptorRoommate = [[NSSortDescriptor alloc] initWithKey:@"nameChore" ascending:YES];
-    NSArray *sortDescriptorsRoommate = @[sortDescriptorRoommate];
-    
-    [fetchRequestRoommate setSortDescriptors:sortDescriptorsRoommate];
-    [fetchRequestRoommate setEntity:entityRoommate];
-    
-    self.fetchedChores = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequestRoommate managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    self.fetchedChores.delegate = self;
-    
-    [self.fetchedChores performFetch:NULL];
-    NSLog(@"fetched chores: %lu", self.fetchedChores.fetchedObjects.count);
-    [self createChoreViews];
-}
 
-- (void)createChoreViews {
-    for (Chore *eachChore in self.fetchedChores.fetchedObjects) {
+
+- (void)createChoreViewsFromFetch:(NSFetchedResultsController *)fetch {
+    for (Chore *eachChore in fetch.fetchedObjects) {
         ChoreView *newChoreView = [[ChoreView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:eachChore];
         [self.view addSubview:newChoreView];
         [self.view bringSubviewToFront:newChoreView];
-        [self.choreViewsArray addObject:newChoreView];
+        [self.entityViewsArray addObject:newChoreView];
         newChoreView.delegate = self;
-        NSLog(@"Made a roommateView for %@", eachChore.name);
+        NSLog(@"Made a choreView for %@", eachChore.name);
     }
 }
 
-- (void) choreViewDidLongPress:(ChoreView *)choreView {
+- (void) entityViewDidLongPress:(EntityView *)choreView {
     [super toggleEditMode];
 }
 
-- (void) choreView:(ChoreView *)choreView didMoveToPoint:(CGPoint)point {
-    Chore *chore = choreView.entity;
+- (void) entityView:(EntityView *)entityView didMoveToPoint:(CGPoint)point {
+    Chore *chore = entityView.entity;
     NSMutableSet *teamsToRemove = [[NSMutableSet alloc] init];
     BOOL teamAssigned = NO;
     if (CGRectContainsPoint(self.trashView.frame, point)) {
@@ -69,34 +50,34 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
-        [self.choreViewsArray removeObject:choreView];
+        [self.entityViewsArray removeObject:entityView];
         
         //remove the view
-        [choreView removeFromSuperview];
+        [entityView removeFromSuperview];
     }
     if (CGRectContainsPoint(self.unassignTeamsView.frame, point)) {
         if (chore.team != nil) {
             chore.team = nil;
             [[CoreDataManager sharedInstance].managedObjectContext save:NULL];
-            NSLog(@"roommate remove all teams");
+            NSLog(@"chore remove all teams");
         }
     }
     
     for (TeamView *teamView in self.teamViewsArray) {
         if (CGRectContainsPoint(teamView.frame, point)) {
             if (chore.team != nil) {
-                    NSLog(@"This roommate was on team: %@", chore.team.name);
+                    NSLog(@"This chore was on team: %@", chore.team.name);
                     if ([chore.team.name isEqualToString:teamView.team.name]) {
                         teamAssigned = YES;
                     } else {
                         [teamsToRemove addObject:chore.team];
-                        NSLog(@"This roommate will remove team: %@", chore.team.name);
+                        NSLog(@"This chore will remove team: %@", chore.team.name);
                         
                     }
             
                 if (teamAssigned == NO) {
                     [teamView.team addChoresToWinObject:chore];
-                    NSLog(@"This roommate will add team: %@", teamView.team.name);
+                    NSLog(@"This chore will add team: %@", teamView.team.name);
                     
                 }
                 if (teamsToRemove.count > 0) {
@@ -105,12 +86,24 @@
                 
             } else {
                 [teamView.team addChoresToWinObject:chore];
-                NSLog(@"This roommate will add team: %@", teamView.team.name);
+                NSLog(@"This chore will add team: %@", teamView.team.name);
                 
             }
             [[CoreDataManager sharedInstance].managedObjectContext save:NULL];
             break;
         }
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    if (type == NSFetchedResultsChangeInsert) {
+        Chore *aChore = anObject;
+        ChoreView *newChoreView = [[ChoreView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:aChore];
+        [self.view addSubview:newChoreView];
+        [self.view bringSubviewToFront:newChoreView];
+        [self.entityViewsArray addObject:newChoreView];
+        newChoreView.delegate = self;
+        NSLog(@"Made a roommateView for %@", aChore.name);
     }
 }
 

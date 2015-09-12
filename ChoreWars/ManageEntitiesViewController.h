@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TeamView.h"
-#import "RoommateView.h"
-#import "Roommate.h"
+#import "Team.h"
+#import "EntityView.h"
 #import "CoreDataManager.h"
 
 @interface ManageEntitiesViewController : UIViewController

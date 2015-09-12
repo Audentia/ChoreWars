@@ -7,6 +7,8 @@
 //
 
 #import "ManageEntitiesViewController.h"
+#import "Roommate.h"
+#import "RoommateView.h"
 
 @interface ManageRoommatesViewController : ManageEntitiesViewController
 

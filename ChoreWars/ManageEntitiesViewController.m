@@ -8,7 +8,7 @@
 
 #import "ManageEntitiesViewController.h"
 
-@interface ManageEntitiesViewController () <NSFetchedResultsControllerDelegate, ChoreViewDelegate>
+@interface ManageEntitiesViewController () <NSFetchedResultsControllerDelegate>
 
 @end
 
@@ -60,6 +60,17 @@
     
 }
 
+//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+//    if (type == NSFetchedResultsChangeInsert) {
+//        EntityView *newEntityView = [[EntityView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:anObject];
+//        [self.view addSubview:newEntityView];
+//        [self.view bringSubviewToFront:newEntityView];
+//        [self.entityViewsArray addObject:newEntityView];
+//        newEntityView.delegate = self;
+//        NSLog(@"Made a entityView for %@", newEntityView.nameLabel.text);
+//    }
+//}
+
 
 - (void) toggleEditMode {
     if (self.trashView == nil) {
@@ -69,70 +80,6 @@
     } else {
         [self.trashView removeFromSuperview];
         self.trashView = nil;
-    }
-}
-
-- (void) choreViewDidLongPress:(ChoreView *)choreView {
-    [self toggleEditMode];
-}
-
-- (void) choreView:(ChoreView *)choreView didMoveToPoint:(CGPoint)point {
-    Roommate *roommate = choreView.entity;
-    NSMutableSet *teamsToRemove = [[NSMutableSet alloc] init];
-    BOOL teamAssigned = NO;
-    if (CGRectContainsPoint(self.trashView.frame, point)) {
-        NSLog(@"drag to trash");
-        //core data delete
-        [[CoreDataManager sharedInstance].managedObjectContext deleteObject:roommate];
-        
-        NSError *error = nil;
-        if (![[CoreDataManager sharedInstance].managedObjectContext save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-        [self.roommateViewsArray removeObject:choreView];
-        
-        //remove the view
-        [choreView removeFromSuperview];
-    }
-    if (CGRectContainsPoint(self.unassignTeamsView.frame, point)){
-        if (roommate.teams.count > 0) {
-            [roommate removeTeams:roommate.teams];
-            [[CoreDataManager sharedInstance].managedObjectContext save:NULL];
-            NSLog(@"roommate remove all teams");
-        }
-    }
-    
-    for (TeamView *teamView in self.teamViewsArray) {
-        if (CGRectContainsPoint(teamView.frame, point)) {
-            if (roommate.teams.count > 0) {
-                for (Team *eachTeam in roommate.teams) {
-                    NSLog(@"This roommate was on team: %@", eachTeam.nameTeam);
-                    if ([eachTeam.nameTeam isEqualToString:teamView.team.nameTeam]) {
-                        teamAssigned = YES;
-                    } else {
-                        [teamsToRemove addObject:eachTeam];
-                        NSLog(@"This roommate will remove team: %@", eachTeam.nameTeam);
-                        
-                    }
-                }
-                if (teamAssigned == NO) {
-                    [teamView.team addParticipantsObject:roommate];
-                    NSLog(@"This roommate will add team: %@", teamView.team.nameTeam);
-                    
-                }
-                if (teamsToRemove.count > 0) {
-                    [roommate removeTeams:teamsToRemove];
-                }
-                
-            } else {
-                [teamView.team addParticipantsObject:roommate];
-                NSLog(@"This roommate will add team: %@", teamView.team.nameTeam);
-                
-            }
-            [[CoreDataManager sharedInstance].managedObjectContext save:NULL];
-            break;
-        }
     }
 }
 
