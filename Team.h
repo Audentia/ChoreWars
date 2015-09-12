@@ -1,19 +1,19 @@
 //
-//  Roommate.h
+//  Team.h
 //  ChoreWars
 //
-//  Created by Douglas Hewitt on 8/13/15.
+//  Created by Douglas Hewitt on 9/11/15.
 //  Copyright © 2015 madebydouglas. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Chore, Team;
+@class Chore, Competition, Roommate;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Roommate : NSManagedObject
+@interface Team : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
@@ -21,4 +21,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#import "Roommate+CoreDataProperties.h"
+#import "Team+CoreDataProperties.h"

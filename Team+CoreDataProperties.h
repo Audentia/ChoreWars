@@ -2,11 +2,11 @@
 //  Team+CoreDataProperties.h
 //  ChoreWars
 //
-//  Created by Douglas Hewitt on 8/13/15.
+//  Created by Douglas Hewitt on 9/11/15.
 //  Copyright © 2015 madebydouglas. All rights reserved.
 //
-//  Delete this file and regenerate it using "Create NSManagedObject Subclass…"
-//  to keep your implementation up to date with your model.
+//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
+//  to delete and recreate this implementation file for your updated model.
 //
 
 #import "Team.h"
@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Team (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSNumber *didWin;
-@property (nullable, nonatomic, retain) NSString *nameTeam;
+@property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSSet<Chore *> *choresToWin;
 @property (nullable, nonatomic, retain) NSSet<Competition *> *competitions;
 @property (nullable, nonatomic, retain) NSSet<Chore *> *opposingChoresToConfirm;

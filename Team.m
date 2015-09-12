@@ -1,15 +1,17 @@
 //
-//  Competition.m
+//  Team.m
 //  ChoreWars
 //
-//  Created by Douglas Hewitt on 8/13/15.
+//  Created by Douglas Hewitt on 9/11/15.
 //  Copyright © 2015 madebydouglas. All rights reserved.
 //
 
-#import "Competition.h"
 #import "Team.h"
+#import "Chore.h"
+#import "Competition.h"
+#import "Roommate.h"
 
-@implementation Competition
+@implementation Team
 
 // Insert code here to add functionality to your managed object subclass
 
