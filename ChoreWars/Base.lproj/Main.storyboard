@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="15A263e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="woa-iZ-SJv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="woa-iZ-SJv">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -250,9 +250,40 @@
                     <view key="view" contentMode="scaleToFill" id="Z3x-Wn-isy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxs-nd-kr5">
+                                <rect key="frame" x="188" y="155" width="55" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="cKv-mX-P9R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5c3-c2-fwl">
+                                <rect key="frame" x="276" y="152" width="280" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="9D2-x5-RiE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5c3-c2-fwl" firstAttribute="leading" secondItem="Uxs-nd-kr5" secondAttribute="trailing" constant="33" id="2ij-dB-IkO"/>
+                            <constraint firstItem="5c3-c2-fwl" firstAttribute="top" secondItem="g2X-Cy-8Cg" secondAttribute="bottom" constant="88" id="GW8-N6-4Wd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5c3-c2-fwl" secondAttribute="trailing" constant="24" id="V1e-rN-CGZ"/>
+                            <constraint firstItem="Uxs-nd-kr5" firstAttribute="top" secondItem="g2X-Cy-8Cg" secondAttribute="bottom" constant="91" id="bx9-Hl-mUz"/>
+                            <constraint firstItem="Uxs-nd-kr5" firstAttribute="baseline" secondItem="5c3-c2-fwl" secondAttribute="baseline" id="ccw-GI-LM3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="5c3-c2-fwl" id="o34-dX-bw8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMa-bE-wit" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,8 +333,55 @@
                     <view key="view" contentMode="scaleToFill" id="Q86-pk-UsJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dot-hC-QWi">
+                                <rect key="frame" x="0.0" y="109" width="600" height="216"/>
+                                <animations/>
+                                <date key="date" timeIntervalSinceReferenceDate="463818227.54511797">
+                                    <!--2015-09-13 06:23:47 +0000-->
+                                </date>
+                            </datePicker>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Daw-da-SIz">
+                                <rect key="frame" x="0.0" y="376" width="600" height="216"/>
+                                <animations/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a due date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1w0-9B-b68">
+                                <rect key="frame" x="241" y="72" width="118" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="118" id="DAp-Hg-oEr"/>
+                                    <constraint firstAttribute="height" constant="21" id="FMo-ND-cpa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a Prize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzz-hH-aMm">
+                                <rect key="frame" x="256" y="347" width="89" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Hqt-Hz-H3l"/>
+                                    <constraint firstAttribute="width" constant="89" id="fWW-Jj-wPW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dot-hC-QWi" firstAttribute="leading" secondItem="Daw-da-SIz" secondAttribute="leading" id="1OU-oA-bfa"/>
+                            <constraint firstAttribute="trailing" secondItem="dot-hC-QWi" secondAttribute="trailing" id="50U-cP-3w6"/>
+                            <constraint firstItem="yF4-CY-D8l" firstAttribute="top" secondItem="Daw-da-SIz" secondAttribute="bottom" constant="8" symbolic="YES" id="7bP-HG-Rsn"/>
+                            <constraint firstItem="dot-hC-QWi" firstAttribute="leading" secondItem="Q86-pk-UsJ" secondAttribute="leading" id="8wC-3t-mGc"/>
+                            <constraint firstItem="1w0-9B-b68" firstAttribute="top" secondItem="En8-FJ-iWj" secondAttribute="bottom" constant="8" symbolic="YES" id="IAS-Si-r6D"/>
+                            <constraint firstItem="dot-hC-QWi" firstAttribute="centerX" secondItem="1w0-9B-b68" secondAttribute="centerX" id="T8e-cF-Wjm"/>
+                            <constraint firstItem="dot-hC-QWi" firstAttribute="top" secondItem="1w0-9B-b68" secondAttribute="bottom" constant="16" id="U2K-fA-1g0"/>
+                            <constraint firstItem="Daw-da-SIz" firstAttribute="centerX" secondItem="fzz-hH-aMm" secondAttribute="centerX" id="ZcH-aW-2dn"/>
+                            <constraint firstItem="dot-hC-QWi" firstAttribute="trailing" secondItem="Daw-da-SIz" secondAttribute="trailing" id="e1I-QR-nZ1"/>
+                            <constraint firstItem="Daw-da-SIz" firstAttribute="top" secondItem="fzz-hH-aMm" secondAttribute="bottom" constant="8" symbolic="YES" id="ybW-Aw-u1U"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gaf-vb-YPv">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="vlG-mD-StJ"/>

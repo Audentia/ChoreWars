@@ -7,7 +7,6 @@
 //
 
 #import "NewRoommateViewController.h"
-#import "CoreDataManager.h"
 
 @interface NewRoommateViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;

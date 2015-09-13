@@ -103,7 +103,7 @@
         [self.view bringSubviewToFront:newChoreView];
         [self.entityViewsArray addObject:newChoreView];
         newChoreView.delegate = self;
-        NSLog(@"Made a roommateView for %@", aChore.name);
+        NSLog(@"Made a choreView for %@", aChore.name);
     }
 }
 

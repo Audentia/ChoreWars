@@ -99,6 +99,14 @@
     }
 }
 
+- (void)saveChore:(id)chore WithName:(NSString *)name {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *newChore = [NSEntityDescription insertNewObjectForEntityForName:@"Chore" inManagedObjectContext:context];
+    [newChore setValue:name forKey:@"name"];
+    NSError *error;
+    [context save:&error];
+}
+
 - (void)saveDataForItem:(id)detailItem WithName:(NSString *)name WithPhone:(NSString *)phone AndEmail:(NSString *)email {
     //    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [self managedObjectContext];
