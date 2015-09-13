@@ -22,6 +22,8 @@
 @property (nonatomic, strong) UIView *unassignTeamsView;
 @property (nonatomic, strong) NSMutableArray *teamViewsArray;
 @property (nonatomic, strong) NSMutableArray *entityViewsArray;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedEntities;
+
 @property CGPoint entityOriginalCenter;
 
 @end

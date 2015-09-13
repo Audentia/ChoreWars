@@ -34,11 +34,12 @@
     [fetchRequest setEntity:entity];
     
     NSFetchedResultsController *fetchedEntities = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    fetchedEntities.delegate = self;
+    self.fetchedEntities = fetchedEntities;
+    self.fetchedEntities.delegate = self;
     
-    [fetchedEntities performFetch:NULL];
-    NSLog(@"fetched %@: %lu", name, fetchedEntities.fetchedObjects.count);
-    return fetchedEntities;
+    [self.fetchedEntities performFetch:NULL];
+    NSLog(@"fetched %@: %lu", name, self.fetchedEntities.fetchedObjects.count);
+    return self.fetchedEntities;
 }
 
 - (void) createTeamViewsFromFetch:(NSFetchedResultsController *)fetch {

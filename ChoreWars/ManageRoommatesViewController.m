@@ -8,7 +8,8 @@
 
 #import "ManageRoommatesViewController.h"
 
-@interface ManageRoommatesViewController () <NSFetchedResultsControllerDelegate, EntityViewDelegate>
+@interface ManageRoommatesViewController () <EntityViewDelegate>
+
 
 @end
 
