@@ -6,9 +6,11 @@
 //  Copyright © 2015 madebydouglas. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ManageEntitiesViewController.h"
+#import "Roommate.h"
+#import "RoommateView.h"
 
-@interface ManageRoommatesViewController : UIViewController
+@interface ManageRoommatesViewController : ManageEntitiesViewController
 
 
 @end

@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C312061E1B7D3C37003DC83B /* Competition.m in Sources */ = {isa = PBXBuildFile; fileRef = C31206141B7D3C37003DC83B /* Competition.m */; };
-		C312061F1B7D3C37003DC83B /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = C31206171B7D3C37003DC83B /* Chore.m */; };
-		C31206201B7D3C37003DC83B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = C312061A1B7D3C37003DC83B /* Team.m */; };
-		C31206211B7D3C37003DC83B /* Roommate.m in Sources */ = {isa = PBXBuildFile; fileRef = C312061D1B7D3C37003DC83B /* Roommate.m */; };
+		81D3E0F0D1B39B8CBA92ABEC /* libPods-ChoreWars.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEA9DF97004FA9FD1E44B65 /* libPods-ChoreWars.a */; };
 		C31AC8AA1B7D311F0077F20B /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C31AC8A91B7D311F0077F20B /* CoreDataManager.m */; };
 		C3207AE11B82915F0066F4E8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3207AE01B82915F0066F4E8 /* LoginViewController.m */; };
 		C3207AE41B82A4C30066F4E8 /* ManageRoommatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3207AE31B82A4C30066F4E8 /* ManageRoommatesViewController.m */; };
 		C3207AE71B82C4760066F4E8 /* NewRoommateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3207AE61B82C4760066F4E8 /* NewRoommateViewController.m */; };
 		C3207AEA1B855FB60066F4E8 /* RoommateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3207AE91B855FB60066F4E8 /* RoommateView.m */; };
 		C3207AED1B855FF90066F4E8 /* TeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3207AEC1B855FF90066F4E8 /* TeamView.m */; };
-		C369862A1B8BE1E800A8FF4E /* TrashView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36986291B8BE1E800A8FF4E /* TrashView.m */; };
+		C34D3AE91B91765A0018B5BA /* TeamPickChoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34D3AE81B91765A0018B5BA /* TeamPickChoresViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C34D3AEC1B9178FF0018B5BA /* TeamStartCompetitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34D3AEB1B9178FF0018B5BA /* TeamStartCompetitionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C34D3AEF1B917F9E0018B5BA /* TeamNewChoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34D3AEE1B917F9E0018B5BA /* TeamNewChoreViewController.m */; settings = {ASSET_TAGS = (); }; };
 		C36B4A861B786D120040FDF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A851B786D120040FDF0 /* main.m */; };
 		C36B4A891B786D120040FDF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A881B786D120040FDF0 /* AppDelegate.m */; };
 		C36B4A8C1B786D120040FDF0 /* TeamHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A8B1B786D120040FDF0 /* TeamHomeViewController.m */; };
@@ -27,7 +26,17 @@
 		C36B4A971B786D120040FDF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36B4A951B786D120040FDF0 /* LaunchScreen.storyboard */; };
 		C36B4AA21B786D120040FDF0 /* ChoreWarsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4AA11B786D120040FDF0 /* ChoreWarsTests.m */; };
 		C36B4AAD1B786D120040FDF0 /* ChoreWarsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4AAC1B786D120040FDF0 /* ChoreWarsUITests.m */; };
-		C36B4ABC1B786FEE0040FDF0 /* ChoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4ABB1B786FEE0040FDF0 /* ChoreView.m */; };
+		C36B4ABC1B786FEE0040FDF0 /* EntityView.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4ABB1B786FEE0040FDF0 /* EntityView.m */; };
+		C3F853171BA3A56700007F57 /* Roommate+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F853081BA3A56700007F57 /* Roommate+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		C3F853181BA3A56700007F57 /* Roommate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8530A1BA3A56700007F57 /* Roommate.m */; settings = {ASSET_TAGS = (); }; };
+		C3F853191BA3A56700007F57 /* Competition+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8530C1BA3A56700007F57 /* Competition+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		C3F8531A1BA3A56700007F57 /* Competition.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F8530E1BA3A56700007F57 /* Competition.m */; settings = {ASSET_TAGS = (); }; };
+		C3F8531B1BA3A56700007F57 /* Team+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F853101BA3A56700007F57 /* Team+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		C3F8531C1BA3A56700007F57 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F853121BA3A56700007F57 /* Team.m */; settings = {ASSET_TAGS = (); }; };
+		C3F8531D1BA3A56700007F57 /* Chore+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F853141BA3A56700007F57 /* Chore+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		C3F8531E1BA3A56700007F57 /* Chore.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F853161BA3A56700007F57 /* Chore.m */; settings = {ASSET_TAGS = (); }; };
+		C3F853211BA3AA8800007F57 /* ManageEntitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F853201BA3AA8800007F57 /* ManageEntitiesViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C3F853241BA4CA4900007F57 /* ChoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F853231BA4CA4900007F57 /* ChoreView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,18 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C31206121B7D3C37003DC83B /* Competition+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Competition+CoreDataProperties.h"; path = "ChoreWars/Competition+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C31206131B7D3C37003DC83B /* Competition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Competition.h; path = ChoreWars/Competition.h; sourceTree = "<group>"; };
-		C31206141B7D3C37003DC83B /* Competition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Competition.m; path = ChoreWars/Competition.m; sourceTree = "<group>"; };
-		C31206151B7D3C37003DC83B /* Chore+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Chore+CoreDataProperties.h"; path = "ChoreWars/Chore+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C31206161B7D3C37003DC83B /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chore.h; path = ChoreWars/Chore.h; sourceTree = "<group>"; };
-		C31206171B7D3C37003DC83B /* Chore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Chore.m; path = ChoreWars/Chore.m; sourceTree = "<group>"; };
-		C31206181B7D3C37003DC83B /* Team+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Team+CoreDataProperties.h"; path = "ChoreWars/Team+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C31206191B7D3C37003DC83B /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Team.h; path = ChoreWars/Team.h; sourceTree = "<group>"; };
-		C312061A1B7D3C37003DC83B /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Team.m; path = ChoreWars/Team.m; sourceTree = "<group>"; };
-		C312061B1B7D3C37003DC83B /* Roommate+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Roommate+CoreDataProperties.h"; path = "ChoreWars/Roommate+CoreDataProperties.h"; sourceTree = "<group>"; };
-		C312061C1B7D3C37003DC83B /* Roommate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Roommate.h; path = ChoreWars/Roommate.h; sourceTree = "<group>"; };
-		C312061D1B7D3C37003DC83B /* Roommate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Roommate.m; path = ChoreWars/Roommate.m; sourceTree = "<group>"; };
+		179C6B3F426472528DF2FF0B /* Pods-ChoreWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChoreWars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChoreWars/Pods-ChoreWars.debug.xcconfig"; sourceTree = "<group>"; };
+		1EEA9DF97004FA9FD1E44B65 /* libPods-ChoreWars.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChoreWars.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6189DE67F848FD886C8985A /* Pods-ChoreWars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChoreWars.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChoreWars/Pods-ChoreWars.release.xcconfig"; sourceTree = "<group>"; };
 		C31AC8A81B7D311F0077F20B /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = ChoreWars/CoreDataManager.h; sourceTree = "<group>"; };
 		C31AC8A91B7D311F0077F20B /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = ChoreWars/CoreDataManager.m; sourceTree = "<group>"; };
 		C3207ADF1B82915F0066F4E8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -72,8 +72,12 @@
 		C3207AE91B855FB60066F4E8 /* RoommateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoommateView.m; sourceTree = "<group>"; };
 		C3207AEB1B855FF90066F4E8 /* TeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamView.h; sourceTree = "<group>"; };
 		C3207AEC1B855FF90066F4E8 /* TeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamView.m; sourceTree = "<group>"; };
-		C36986281B8BE1E800A8FF4E /* TrashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashView.h; sourceTree = "<group>"; };
-		C36986291B8BE1E800A8FF4E /* TrashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrashView.m; sourceTree = "<group>"; };
+		C34D3AE71B91765A0018B5BA /* TeamPickChoresViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamPickChoresViewController.h; sourceTree = "<group>"; };
+		C34D3AE81B91765A0018B5BA /* TeamPickChoresViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamPickChoresViewController.m; sourceTree = "<group>"; };
+		C34D3AEA1B9178FF0018B5BA /* TeamStartCompetitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamStartCompetitionViewController.h; sourceTree = "<group>"; };
+		C34D3AEB1B9178FF0018B5BA /* TeamStartCompetitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamStartCompetitionViewController.m; sourceTree = "<group>"; };
+		C34D3AED1B917F9E0018B5BA /* TeamNewChoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamNewChoreViewController.h; sourceTree = "<group>"; };
+		C34D3AEE1B917F9E0018B5BA /* TeamNewChoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamNewChoreViewController.m; sourceTree = "<group>"; };
 		C36B4A811B786D120040FDF0 /* ChoreWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChoreWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36B4A851B786D120040FDF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C36B4A871B786D120040FDF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,8 +95,28 @@
 		C36B4AA81B786D120040FDF0 /* ChoreWarsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChoreWarsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36B4AAC1B786D120040FDF0 /* ChoreWarsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChoreWarsUITests.m; sourceTree = "<group>"; };
 		C36B4AAE1B786D120040FDF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C36B4ABA1B786FEE0040FDF0 /* ChoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreView.h; sourceTree = "<group>"; };
-		C36B4ABB1B786FEE0040FDF0 /* ChoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreView.m; sourceTree = "<group>"; };
+		C36B4ABA1B786FEE0040FDF0 /* EntityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityView.h; sourceTree = "<group>"; };
+		C36B4ABB1B786FEE0040FDF0 /* EntityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityView.m; sourceTree = "<group>"; };
+		C3F853071BA3A56700007F57 /* Roommate+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Roommate+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C3F853081BA3A56700007F57 /* Roommate+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Roommate+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C3F853091BA3A56700007F57 /* Roommate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Roommate.h; sourceTree = "<group>"; };
+		C3F8530A1BA3A56700007F57 /* Roommate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Roommate.m; sourceTree = "<group>"; };
+		C3F8530B1BA3A56700007F57 /* Competition+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Competition+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C3F8530C1BA3A56700007F57 /* Competition+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Competition+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C3F8530D1BA3A56700007F57 /* Competition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Competition.h; sourceTree = "<group>"; };
+		C3F8530E1BA3A56700007F57 /* Competition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Competition.m; sourceTree = "<group>"; };
+		C3F8530F1BA3A56700007F57 /* Team+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Team+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C3F853101BA3A56700007F57 /* Team+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Team+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C3F853111BA3A56700007F57 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		C3F853121BA3A56700007F57 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		C3F853131BA3A56700007F57 /* Chore+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chore+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C3F853141BA3A56700007F57 /* Chore+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Chore+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C3F853151BA3A56700007F57 /* Chore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chore.h; sourceTree = "<group>"; };
+		C3F853161BA3A56700007F57 /* Chore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chore.m; sourceTree = "<group>"; };
+		C3F8531F1BA3AA8800007F57 /* ManageEntitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageEntitiesViewController.h; sourceTree = "<group>"; };
+		C3F853201BA3AA8800007F57 /* ManageEntitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageEntitiesViewController.m; sourceTree = "<group>"; };
+		C3F853221BA4CA4900007F57 /* ChoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoreView.h; sourceTree = "<group>"; };
+		C3F853231BA4CA4900007F57 /* ChoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoreView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D3E0F0D1B39B8CBA92ABEC /* libPods-ChoreWars.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,18 +148,22 @@
 		C36B4A781B786D110040FDF0 = {
 			isa = PBXGroup;
 			children = (
-				C31206121B7D3C37003DC83B /* Competition+CoreDataProperties.h */,
-				C31206131B7D3C37003DC83B /* Competition.h */,
-				C31206141B7D3C37003DC83B /* Competition.m */,
-				C31206151B7D3C37003DC83B /* Chore+CoreDataProperties.h */,
-				C31206161B7D3C37003DC83B /* Chore.h */,
-				C31206171B7D3C37003DC83B /* Chore.m */,
-				C31206181B7D3C37003DC83B /* Team+CoreDataProperties.h */,
-				C31206191B7D3C37003DC83B /* Team.h */,
-				C312061A1B7D3C37003DC83B /* Team.m */,
-				C312061B1B7D3C37003DC83B /* Roommate+CoreDataProperties.h */,
-				C312061C1B7D3C37003DC83B /* Roommate.h */,
-				C312061D1B7D3C37003DC83B /* Roommate.m */,
+				C3F853071BA3A56700007F57 /* Roommate+CoreDataProperties.h */,
+				C3F853081BA3A56700007F57 /* Roommate+CoreDataProperties.m */,
+				C3F853091BA3A56700007F57 /* Roommate.h */,
+				C3F8530A1BA3A56700007F57 /* Roommate.m */,
+				C3F8530B1BA3A56700007F57 /* Competition+CoreDataProperties.h */,
+				C3F8530C1BA3A56700007F57 /* Competition+CoreDataProperties.m */,
+				C3F8530D1BA3A56700007F57 /* Competition.h */,
+				C3F8530E1BA3A56700007F57 /* Competition.m */,
+				C3F8530F1BA3A56700007F57 /* Team+CoreDataProperties.h */,
+				C3F853101BA3A56700007F57 /* Team+CoreDataProperties.m */,
+				C3F853111BA3A56700007F57 /* Team.h */,
+				C3F853121BA3A56700007F57 /* Team.m */,
+				C3F853131BA3A56700007F57 /* Chore+CoreDataProperties.h */,
+				C3F853141BA3A56700007F57 /* Chore+CoreDataProperties.m */,
+				C3F853151BA3A56700007F57 /* Chore.h */,
+				C3F853161BA3A56700007F57 /* Chore.m */,
 				C31AC8A81B7D311F0077F20B /* CoreDataManager.h */,
 				C31AC8A91B7D311F0077F20B /* CoreDataManager.m */,
 				C36B4A901B786D120040FDF0 /* ChoreWars.xcdatamodeld */,
@@ -142,6 +171,8 @@
 				C36B4AA01B786D120040FDF0 /* ChoreWarsTests */,
 				C36B4AAB1B786D120040FDF0 /* ChoreWarsUITests */,
 				C36B4A821B786D120040FDF0 /* Products */,
+				F0892D1F1B265CDD5557A53C /* Pods */,
+				D0F4267A35772DF1CCA3410A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,12 +191,10 @@
 			children = (
 				C36B4A871B786D120040FDF0 /* AppDelegate.h */,
 				C36B4A881B786D120040FDF0 /* AppDelegate.m */,
-				C36B4A8A1B786D120040FDF0 /* TeamHomeViewController.h */,
-				C36B4A8B1B786D120040FDF0 /* TeamHomeViewController.m */,
-				C36B4ABA1B786FEE0040FDF0 /* ChoreView.h */,
-				C36B4ABB1B786FEE0040FDF0 /* ChoreView.m */,
-				C36986281B8BE1E800A8FF4E /* TrashView.h */,
-				C36986291B8BE1E800A8FF4E /* TrashView.m */,
+				C36B4ABA1B786FEE0040FDF0 /* EntityView.h */,
+				C36B4ABB1B786FEE0040FDF0 /* EntityView.m */,
+				C3F853221BA4CA4900007F57 /* ChoreView.h */,
+				C3F853231BA4CA4900007F57 /* ChoreView.m */,
 				C3207AE81B855FB60066F4E8 /* RoommateView.h */,
 				C3207AE91B855FB60066F4E8 /* RoommateView.m */,
 				C3207AEB1B855FF90066F4E8 /* TeamView.h */,
@@ -174,8 +203,18 @@
 				C3207AE61B82C4760066F4E8 /* NewRoommateViewController.m */,
 				C3207AE21B82A4C30066F4E8 /* ManageRoommatesViewController.h */,
 				C3207AE31B82A4C30066F4E8 /* ManageRoommatesViewController.m */,
+				C3F8531F1BA3AA8800007F57 /* ManageEntitiesViewController.h */,
+				C3F853201BA3AA8800007F57 /* ManageEntitiesViewController.m */,
 				C3207ADF1B82915F0066F4E8 /* LoginViewController.h */,
 				C3207AE01B82915F0066F4E8 /* LoginViewController.m */,
+				C36B4A8A1B786D120040FDF0 /* TeamHomeViewController.h */,
+				C36B4A8B1B786D120040FDF0 /* TeamHomeViewController.m */,
+				C34D3AE71B91765A0018B5BA /* TeamPickChoresViewController.h */,
+				C34D3AE81B91765A0018B5BA /* TeamPickChoresViewController.m */,
+				C34D3AEA1B9178FF0018B5BA /* TeamStartCompetitionViewController.h */,
+				C34D3AEB1B9178FF0018B5BA /* TeamStartCompetitionViewController.m */,
+				C34D3AED1B917F9E0018B5BA /* TeamNewChoreViewController.h */,
+				C34D3AEE1B917F9E0018B5BA /* TeamNewChoreViewController.m */,
 				C36B4A8D1B786D120040FDF0 /* Main.storyboard */,
 				C36B4A931B786D120040FDF0 /* Assets.xcassets */,
 				C36B4A951B786D120040FDF0 /* LaunchScreen.storyboard */,
@@ -211,6 +250,23 @@
 			path = ChoreWarsUITests;
 			sourceTree = "<group>";
 		};
+		D0F4267A35772DF1CCA3410A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1EEA9DF97004FA9FD1E44B65 /* libPods-ChoreWars.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0892D1F1B265CDD5557A53C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				179C6B3F426472528DF2FF0B /* Pods-ChoreWars.debug.xcconfig */,
+				A6189DE67F848FD886C8985A /* Pods-ChoreWars.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C36B4AB11B786D120040FDF0 /* Build configuration list for PBXNativeTarget "ChoreWars" */;
 			buildPhases = (
+				9768A6A9720F575AA34931CA /* Check Pods Manifest.lock */,
 				C36B4A7D1B786D110040FDF0 /* Sources */,
 				C36B4A7E1B786D110040FDF0 /* Frameworks */,
 				C36B4A7F1B786D110040FDF0 /* Resources */,
+				115BD879E8F4458211068928 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,6 +394,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		115BD879E8F4458211068928 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChoreWars/Pods-ChoreWars-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9768A6A9720F575AA34931CA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C36B4A7D1B786D110040FDF0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -343,19 +434,27 @@
 			files = (
 				C36B4A921B786D120040FDF0 /* ChoreWars.xcdatamodeld in Sources */,
 				C36B4A8C1B786D120040FDF0 /* TeamHomeViewController.m in Sources */,
+				C3F853181BA3A56700007F57 /* Roommate.m in Sources */,
+				C3F8531E1BA3A56700007F57 /* Chore.m in Sources */,
+				C34D3AEC1B9178FF0018B5BA /* TeamStartCompetitionViewController.m in Sources */,
 				C3207AE41B82A4C30066F4E8 /* ManageRoommatesViewController.m in Sources */,
-				C369862A1B8BE1E800A8FF4E /* TrashView.m in Sources */,
+				C3F853211BA3AA8800007F57 /* ManageEntitiesViewController.m in Sources */,
+				C3F8531C1BA3A56700007F57 /* Team.m in Sources */,
+				C34D3AE91B91765A0018B5BA /* TeamPickChoresViewController.m in Sources */,
+				C34D3AEF1B917F9E0018B5BA /* TeamNewChoreViewController.m in Sources */,
+				C3F8531D1BA3A56700007F57 /* Chore+CoreDataProperties.m in Sources */,
 				C36B4A891B786D120040FDF0 /* AppDelegate.m in Sources */,
 				C3207AEA1B855FB60066F4E8 /* RoommateView.m in Sources */,
-				C312061F1B7D3C37003DC83B /* Chore.m in Sources */,
-				C31206201B7D3C37003DC83B /* Team.m in Sources */,
 				C31AC8AA1B7D311F0077F20B /* CoreDataManager.m in Sources */,
 				C3207AED1B855FF90066F4E8 /* TeamView.m in Sources */,
-				C312061E1B7D3C37003DC83B /* Competition.m in Sources */,
 				C36B4A861B786D120040FDF0 /* main.m in Sources */,
-				C36B4ABC1B786FEE0040FDF0 /* ChoreView.m in Sources */,
+				C3F853171BA3A56700007F57 /* Roommate+CoreDataProperties.m in Sources */,
+				C36B4ABC1B786FEE0040FDF0 /* EntityView.m in Sources */,
+				C3F853241BA4CA4900007F57 /* ChoreView.m in Sources */,
 				C3207AE11B82915F0066F4E8 /* LoginViewController.m in Sources */,
-				C31206211B7D3C37003DC83B /* Roommate.m in Sources */,
+				C3F853191BA3A56700007F57 /* Competition+CoreDataProperties.m in Sources */,
+				C3F8531A1BA3A56700007F57 /* Competition.m in Sources */,
+				C3F8531B1BA3A56700007F57 /* Team+CoreDataProperties.m in Sources */,
 				C3207AE71B82C4760066F4E8 /* NewRoommateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +594,7 @@
 		};
 		C36B4AB21B786D120040FDF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 179C6B3F426472528DF2FF0B /* Pods-ChoreWars.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChoreWars/Info.plist;
@@ -506,6 +606,7 @@
 		};
 		C36B4AB31B786D120040FDF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6189DE67F848FD886C8985A /* Pods-ChoreWars.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ChoreWars/Info.plist;

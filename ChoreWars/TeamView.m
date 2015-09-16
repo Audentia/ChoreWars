@@ -33,6 +33,6 @@
 
 - (void) configureNameLabel {
     self.team = self.entity;
-    self.nameLabel.text = self.team.nameTeam;
+    self.nameLabel.text = self.team.name;
 }
 @end

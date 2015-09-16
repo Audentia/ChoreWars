@@ -25,26 +25,24 @@
 
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"nameTeam" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
     [fetchRequest setEntity:entity];
     
     self.fetchedTeams = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[CoreDataManager sharedInstance].managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-    static dispatch_once_t once;
-    dispatch_once(&once, ^ {
         [self.fetchedTeams performFetch:NULL];
-        if (self.fetchedTeams.fetchedObjects.count == 0) {
-            
-            Team *teamA = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
-            teamA.nameTeam = @"TeamA";
-            teamA.didWin = 0;
-            Team *teamB = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
-            teamB.nameTeam = @"TeamB";
-            teamB.didWin = 0;
-        }
-    });
+    
+    if (self.fetchedTeams.fetchedObjects.count == 0) {
+        Team *teamA = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
+        teamA.name = @"TeamA";
+        teamA.didWin = 0;
+        Team *teamB = [[Team alloc] initWithEntity:entity insertIntoManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
+        teamB.name = @"TeamB";
+        teamB.didWin = 0;
+        [self.fetchedTeams performFetch:NULL];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -56,24 +54,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"teamCell" forIndexPath:indexPath];
     Team *team = [self.fetchedTeams.fetchedObjects objectAtIndex:indexPath.row];
-    cell.textLabel.text = team.nameTeam;
+    cell.textLabel.text = team.name;
 
     return cell;
 }
+//SomeViewController *someViewController = [storyboard instantiateViewControllerWithIdentifier:@"SomeViewController"];
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

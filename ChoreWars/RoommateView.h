@@ -6,10 +6,10 @@
 //  Copyright © 2015 madebydouglas. All rights reserved.
 //
 
-#import "ChoreView.h"
+#import "EntityView.h"
 #import "Roommate.h"
 
-@interface RoommateView : ChoreView
+@interface RoommateView : EntityView
 
 @property (strong, nonatomic) Roommate *roommate;
 
