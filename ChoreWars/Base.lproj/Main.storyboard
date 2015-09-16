@@ -340,6 +340,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="463818227.54511797">
                                     <!--2015-09-13 06:23:47 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="selectDate:" destination="kLQ-u4-wNR" eventType="valueChanged" id="v1x-aQ-S8g"/>
+                                </connections>
                             </datePicker>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Daw-da-SIz">
                                 <rect key="frame" x="0.0" y="376" width="600" height="216"/>
@@ -386,6 +389,9 @@
                     <navigationItem key="navigationItem" id="Gaf-vb-YPv">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="vlG-mD-StJ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="dot-hC-QWi" id="wqX-H9-qLa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHc-iB-rhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

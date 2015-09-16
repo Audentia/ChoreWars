@@ -9,7 +9,8 @@
 #import "TeamStartCompetitionViewController.h"
 
 @interface TeamStartCompetitionViewController ()
-
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) NSDate *completionDate;
 @end
 
 @implementation TeamStartCompetitionViewController
@@ -23,6 +24,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)selectDate:(UIDatePicker *)sender {
+    self.completionDate = self.datePicker.date;
+}
+
+
 
 /*
 #pragma mark - Navigation
