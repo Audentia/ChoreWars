@@ -56,6 +56,12 @@
 
     return cell;
 }
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    Team *team = [self.fetchedTeams.fetchedObjects objectAtIndex:indexPath.row];
+    [CoreDataManager sharedInstance].currentTeam = team;
+}
+
 //SomeViewController *someViewController = [storyboard instantiateViewControllerWithIdentifier:@"SomeViewController"];
 
 
