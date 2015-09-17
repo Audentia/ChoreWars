@@ -16,8 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+
     [self createTeamViewsFromFetch:[self fetchEntitiesWithName:@"Team" andSortKey:@"name"]];
 }
+
+- (void)createCollisions {
+    self.collider = [[UICollisionBehavior alloc] initWithItems:self.entityViewsArray];
+    //    self.collider.collisionDelegate = self.paddleView;
+    self.collider.collisionMode = UICollisionBehaviorModeEverything;
+    [self.collider addBoundaryWithIdentifier:@"left" fromPoint:CGPointMake(0, 0) toPoint:CGPointMake(0, self.view.frame.size.height)];
+    [self.collider addBoundaryWithIdentifier:@"right" fromPoint:CGPointMake(self.view.frame.size.width, 0) toPoint:CGPointMake(self.view.frame.size.width, self.view.frame.size.height)];
+    [self.collider addBoundaryWithIdentifier:@"bottom" fromPoint:CGPointMake(0, self.view.frame.size.height - 200) toPoint:CGPointMake(self.view.frame.size.width, self.view.frame.size.height - 200)];
+    [self.animator addBehavior:self.collider];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
