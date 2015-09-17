@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSDate *completionDate;
 @property NSFetchedResultsController *fetchedEntities;
 @property (weak, nonatomic) IBOutlet UIPickerView *rewardPickerView;
+@property (strong, nonatomic) NSArray *rewardOptions;
 
 @end
 
@@ -27,7 +28,7 @@
     [self.datePicker setMaximumDate:[[NSDate date] addTimeInterval:60 * 24 * 60 * 60]];
     [self.datePicker setDate:[NSDate date] animated:YES];
     
-    NSArray *rewardOptions = @[@"Social Shame", @"Pizza", @"Beer"];
+    self.rewardOptions = @[@"Social Shame", @"Pizza", @"Beer"];
     
 }
 - (IBAction)didPressDoneButton:(UIBarButtonItem *)sender {
@@ -40,6 +41,24 @@
 }
 - (IBAction)selectDate:(UIDatePicker *)sender {
     self.completionDate = self.datePicker.date;
+}
+
+#pragma mark - Rewards Picker View
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component {
+    return self.rewardOptions.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [self.rewardOptions objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSLog(@"Picked %ld for reward", row);
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
