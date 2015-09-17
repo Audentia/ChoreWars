@@ -58,7 +58,6 @@
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSLog(@"Picked %ld for reward", row);
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -72,6 +71,10 @@
     newCompetition.name = @"competition";
     newCompetition.creationDate = [NSDate date];
     newCompetition.targetDate = self.datePicker.date;
+    NSInteger pickedRow = [self.rewardPickerView selectedRowInComponent:0];
+    newCompetition.reward = [self.rewardOptions objectAtIndex:pickedRow];
+    NSLog(@"Picked %@ for reward", newCompetition.reward);
+
     
     NSError *error;
     [context save:&error];
