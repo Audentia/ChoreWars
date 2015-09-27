@@ -17,7 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-
+    
+    self.entityViewsArray = [[NSMutableArray alloc] init];
     [self createTeamViewsFromFetch:[self fetchEntitiesWithName:@"Team" andSortKey:@"name"]];
 }
 
@@ -86,15 +87,64 @@
 //    }
 //}
 
+- (void) shakeView:(UIView *)view {
+    CABasicAnimation *animation =
+    [CABasicAnimation animationWithKeyPath:@"position"];
+    [animation setDuration:0.2];
+    [animation setRepeatCount:8];
+    [animation setAutoreverses:YES];
+    [animation setFromValue:[NSValue valueWithCGPoint:
+                             CGPointMake([view center].x - 20.0f, [view center].y)]];
+    [animation setToValue:[NSValue valueWithCGPoint:
+                           CGPointMake([view center].x + 20.0f, [view center].y)]];
+    [[view layer] addAnimation:animation forKey:@"position"];
+}
+
+- (void) wiggleViews:(NSArray *)array {
+    for (UIView *view in array) {
+        view.transform = CGAffineTransformMakeRotation(-.1);
+        [UIView animateWithDuration:0.15 delay:0 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat | UIViewAnimationOptionAllowUserInteraction animations:^{
+            view.transform = CGAffineTransformMakeRotation(.1);
+        } completion:nil];
+    }
+}
+
+- (void) stopWigglingViews:(NSArray *)array {
+    for (UIView *view in array) {
+        [UIView animateWithDuration:0.15 animations:^{
+            view.transform = CGAffineTransformIdentity;
+        } completion:nil];
+    }
+}
+
+- (void) enlargeView:(UIView *)view {
+    [UIView animateWithDuration:.3 animations:^{
+        view.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    } completion:nil];
+}
+
+- (void) shrinkViewtoNormalSize:(UIView *)view {
+     [UIView animateWithDuration:.3 animations:^{
+         view.transform = CGAffineTransformIdentity;
+         } completion:nil];
+}
 
 - (void) toggleEditMode {
     if (self.trashView == nil) {
         self.trashView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 35, 64, 70, 70)];
-        [self.trashView setBackgroundColor:[UIColor blackColor]];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
+        imageView.image = [UIImage imageNamed:@"empty_trash.png"];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [self.trashView addSubview:imageView];
         [self.view addSubview:self.trashView];
+        [self wiggleViews:self.entityViewsArray];
+        
+        
     } else {
         [self.trashView removeFromSuperview];
         self.trashView = nil;
+        [self stopWigglingViews:self.entityViewsArray];
     }
 }
 

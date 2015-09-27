@@ -62,11 +62,22 @@
         [self.entityViewsArray addObject:roommateView];
         roommateView.delegate = self;
         NSLog(@"Made a roommateView for %@", eachRoommate.name);
+        NSLog(@"entityViewsArray has %lu things in it", (unsigned long)self.entityViewsArray.count);
     }
 }
 
 - (void) entityViewDidLongPress:(EntityView *)entityView {
     [self toggleEditMode];
+}
+
+- (void) entityView:(EntityView *)entityView willMoveToPoint:(CGPoint)point {
+    if (CGRectContainsPoint(self.trashView.frame, point)) {
+        [self enlargeView:self.trashView];
+    }
+    if (!CGRectContainsPoint(self.trashView.frame, point)) {
+        [self shrinkViewtoNormalSize:self.trashView];
+    }
+
 }
 
 - (void) entityView:(EntityView *)entityView didMoveToPoint:(CGPoint)point {
@@ -84,6 +95,7 @@
             abort();
         }
         [self.entityViewsArray removeObject:entityView];
+        [self shrinkViewtoNormalSize:self.trashView];
         
         //remove the view
         [entityView removeFromSuperview];

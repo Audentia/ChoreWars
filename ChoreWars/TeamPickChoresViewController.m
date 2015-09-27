@@ -36,6 +36,16 @@
     [super toggleEditMode];
 }
 
+- (void) entityView:(EntityView *)entityView willMoveToPoint:(CGPoint)point {
+        if (CGRectContainsPoint(self.trashView.frame, point)) {
+            [self enlargeView:self.trashView];
+        }
+        if (!CGRectContainsPoint(self.trashView.frame, point)) {
+            [self shrinkViewtoNormalSize:self.trashView];
+        }
+        
+}
+
 - (void) entityView:(EntityView *)entityView didMoveToPoint:(CGPoint)point {
     Chore *chore = entityView.entity;
     NSMutableSet *teamsToRemove = [[NSMutableSet alloc] init];

@@ -15,6 +15,9 @@
 @interface ManageEntitiesViewController : UIViewController
 
 - (void) toggleEditMode;
+- (void) enlargeView:(UIView *)view;
+- (void) shrinkViewtoNormalSize:(UIView *)view;
+
 - (NSFetchedResultsController *) fetchEntitiesWithName:(NSString *)name andSortKey:(NSString *)sortKey;
 //- (void)sendEntities;
 

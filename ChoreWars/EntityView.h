@@ -15,6 +15,7 @@
 @protocol EntityViewDelegate <NSObject>
 
 - (void) entityView:(EntityView *)entityView didMoveToPoint:(CGPoint)point;
+- (void) entityView:(EntityView *)entityView willMoveToPoint:(CGPoint)point;
 - (void) entityViewDidLongPress:(EntityView *)entityView;
 
 @end
