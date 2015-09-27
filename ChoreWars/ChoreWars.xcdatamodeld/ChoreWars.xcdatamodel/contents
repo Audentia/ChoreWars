@@ -14,6 +14,7 @@
         <attribute name="completionDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="reward" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="targetDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="competitions" inverseEntity="Team" syncable="YES"/>
     </entity>
@@ -35,7 +36,7 @@
     </entity>
     <elements>
         <element name="Chore" positionX="-63" positionY="-18" width="128" height="165"/>
-        <element name="Competition" positionX="-36" positionY="9" width="128" height="118"/>
+        <element name="Competition" positionX="-36" positionY="9" width="128" height="135"/>
         <element name="Roommate" positionX="-54" positionY="-9" width="128" height="135"/>
         <element name="Team" positionX="-45" positionY="18" width="128" height="135"/>
     </elements>

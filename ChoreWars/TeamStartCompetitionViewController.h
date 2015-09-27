@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Competition.h"
+#import "CoreDataManager.h"
 
 @interface TeamStartCompetitionViewController : UIViewController
 

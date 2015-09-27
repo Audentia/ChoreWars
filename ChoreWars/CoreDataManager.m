@@ -107,6 +107,17 @@
     [context save:&error];
 }
 
+//- (void)saveCompetition:(id)competition WithName:(NSString *)name AndCreationDate:(NSDate *)cDate AndTargetDate:(NSDate *)tDate {
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    NSManagedObject *newCompetition = [NSEntityDescription insertNewObjectForEntityForName:@"Competition" inManagedObjectContext:context];
+//    [newCompetition setValue:name forKey:@"name"];
+//    [newCompetition setValue:cDate forKey:@"creationDate"];
+//    [newCompetition setValue:tDate forKey:@"targetDate"];
+//    
+//    NSError *error;
+//    [context save:&error];
+//}
+
 - (void)saveDataForItem:(id)detailItem WithName:(NSString *)name WithPhone:(NSString *)phone AndEmail:(NSString *)email {
     //    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [self managedObjectContext];

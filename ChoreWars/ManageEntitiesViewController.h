@@ -16,6 +16,7 @@
 
 - (void) toggleEditMode;
 - (NSFetchedResultsController *) fetchEntitiesWithName:(NSString *)name andSortKey:(NSString *)sortKey;
+//- (void)sendEntities;
 
 
 @property (nonatomic, strong) UIView *trashView;
@@ -25,5 +26,9 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedEntities;
 
 @property CGPoint entityOriginalCenter;
+
+@property (nonatomic, strong) UIDynamicAnimator *animator;
+@property (nonatomic, strong) UIPushBehavior *pusher;
+@property (nonatomic, strong) UICollisionBehavior *collider;
 
 @end

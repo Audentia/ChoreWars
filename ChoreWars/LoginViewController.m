@@ -7,12 +7,10 @@
 //
 
 #import "LoginViewController.h"
-#import "CoreDataManager.h"
-#import "Team.h"
+
 
 @interface LoginViewController ()
 
-@property NSFetchedResultsController *fetchedTeams;
 
 @end
 
@@ -45,9 +43,7 @@
     }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section {
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.fetchedTeams.fetchedObjects.count;
 }
 
@@ -58,6 +54,12 @@
 
     return cell;
 }
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    Team *team = [self.fetchedTeams.fetchedObjects objectAtIndex:indexPath.row];
+    [CoreDataManager sharedInstance].currentTeam = team;
+}
+
 //SomeViewController *someViewController = [storyboard instantiateViewControllerWithIdentifier:@"SomeViewController"];
 
 

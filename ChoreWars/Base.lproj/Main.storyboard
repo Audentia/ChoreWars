@@ -178,10 +178,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKK-5j-a17">
-                                <rect key="frame" x="12" y="538" width="82" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKK-5j-a17">
+                                <rect key="frame" x="12" y="538" width="134" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Past Glories"/>
+                                <state key="normal" title="Chores Completed"/>
                                 <connections>
                                     <segue destination="33e-01-RDj" kind="showDetail" id="fYL-ye-Y7w"/>
                                 </connections>
@@ -199,14 +199,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZC-f2-jh0">
-                                <rect key="frame" x="498" y="527" width="82" height="51"/>
+                                <rect key="frame" x="449" y="527" width="131" height="51"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="82" id="98D-0i-Lna"/>
+                                    <constraint firstAttribute="width" constant="131" id="98D-0i-Lna"/>
                                 </constraints>
-                                <state key="normal" title="The Fray"/>
+                                <state key="normal" title="Chores Assigned"/>
                                 <connections>
-                                    <segue destination="Fgx-kI-0Sh" kind="showDetail" id="qqm-hG-ztN"/>
+                                    <segue destination="QoO-cq-Pod" kind="show" id="4m0-BB-cyZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -238,6 +238,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="854" y="142"/>
+        </scene>
+        <!--Team Assigned Chores Table View Controller-->
+        <scene sceneID="gBP-No-dD4">
+            <objects>
+                <tableViewController id="QoO-cq-Pod" customClass="TeamAssignedChoresTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EcP-Gv-FkX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="2U2-2c-HLH" style="IBUITableViewCellStyleDefault" id="mJQ-rD-iHd">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mJQ-rD-iHd" id="BGy-yY-Lg4">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2U2-2c-HLH">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QoO-cq-Pod" id="8u8-Sg-979"/>
+                            <outlet property="delegate" destination="QoO-cq-Pod" id="ykw-x8-5Bd"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODa-vh-Ikx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="990"/>
         </scene>
         <!--Team New Chore View Controller-->
         <scene sceneID="5Xy-ye-G2E">
@@ -334,12 +375,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dot-hC-QWi">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="dot-hC-QWi">
                                 <rect key="frame" x="0.0" y="109" width="600" height="216"/>
                                 <animations/>
                                 <date key="date" timeIntervalSinceReferenceDate="463818227.54511797">
                                     <!--2015-09-13 06:23:47 +0000-->
                                 </date>
+                                <locale key="locale" localeIdentifier="en_US"/>
                                 <connections>
                                     <action selector="selectDate:" destination="kLQ-u4-wNR" eventType="valueChanged" id="v1x-aQ-S8g"/>
                                 </connections>
@@ -347,6 +389,10 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Daw-da-SIz">
                                 <rect key="frame" x="0.0" y="376" width="600" height="216"/>
                                 <animations/>
+                                <connections>
+                                    <outlet property="dataSource" destination="kLQ-u4-wNR" id="hIE-BS-A5B"/>
+                                    <outlet property="delegate" destination="kLQ-u4-wNR" id="9Pg-XO-mLe"/>
+                                </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a due date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1w0-9B-b68">
                                 <rect key="frame" x="241" y="72" width="118" height="21"/>
@@ -387,10 +433,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Gaf-vb-YPv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vlG-mD-StJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vlG-mD-StJ">
+                            <connections>
+                                <action selector="didPressDoneButton:" destination="kLQ-u4-wNR" id="ctg-gD-G2K"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="dot-hC-QWi" id="wqX-H9-qLa"/>
+                        <outlet property="rewardPickerView" destination="Daw-da-SIz" id="b7r-5Z-YhM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHc-iB-rhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -532,25 +583,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlx-PF-5iz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="1003"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="QLk-F7-zq1">
-            <objects>
-                <viewController id="Fgx-kI-0Sh" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="12m-bE-PeQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="gfi-hb-Ecu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6nB-hc-Sfp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C3g-Kq-4ja" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="836" y="1123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ujf-4a-PoF">

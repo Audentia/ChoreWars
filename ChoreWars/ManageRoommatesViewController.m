@@ -17,7 +17,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self createRoommateViewsFromFetch:[self fetchEntitiesWithName:@"Roommate" andSortKey:@"name"]];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+//    [self sendEntities];
+}
+
+- (void)sendEntities {
+    //    Start the ball
+    self.pusher = [[UIPushBehavior alloc] initWithItems:@[self.entityViewsArray]
+                                                   mode:UIPushBehaviorModeInstantaneous];
+    int uniqueStartInt = arc4random_uniform(4);
+    //    want to make random numbers so long as the sum equals the same magnitude in the equation v = sqr(x^2 + y^2)
+    switch (uniqueStartInt) {
+        case 0:
+            self.pusher.pushDirection = CGVectorMake(0.1, 0.1);
+            break;
+        case 1:
+            self.pusher.pushDirection = CGVectorMake(0.2, 0.05);
+            break;
+        case 2:
+            self.pusher.pushDirection = CGVectorMake(0.05, 0.2);
+            break;
+        case 3:
+            self.pusher.pushDirection = CGVectorMake(-0.1, -0.1);
+            break;
+            
+        default:
+            break;
+    }
+    
+    self.pusher.active = YES;
+    //    Because push is instantaneous, it will only happen once
+    [self.animator addBehavior:self.pusher];
 }
 
 - (void)createRoommateViewsFromFetch:(NSFetchedResultsController *)fetch {

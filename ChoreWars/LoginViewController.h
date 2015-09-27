@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataManager.h"
+#import "Team.h"
 
 @interface LoginViewController : UIViewController
+
+@property NSFetchedResultsController *fetchedTeams;
 
 @end
