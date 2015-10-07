@@ -12,9 +12,8 @@
 @interface TeamView : UIView
 
 @property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) id entity;
 @property (nonatomic, strong) Team *team;
 
-- (id) initWithFrame:(CGRect)frame andEntity:(id)entity;
+- (id) initWithFrame:(CGRect)frame andTeam:(Team *)team;
 
 @end

@@ -16,7 +16,7 @@
 
 @implementation EntityView
 
-- (id) initWithFrame:(CGRect)frame andEntity:(id)entity {
+- (id) initWithFrame:(CGRect)frame andEntity:(id)entity WithType:(NSString *)type {
     self = [super initWithFrame:frame];
     if (self) {
         self.entity = entity;
@@ -48,6 +48,8 @@
 }
 
 - (void) configureNameLabel {
+    NSManagedObject *object = self.entity;
+    self.nameLabel.text = [object valueForKey:@"name"];
 }
 
 - (void) didLongPressView:(UILongPressGestureRecognizer *)sender {

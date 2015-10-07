@@ -52,7 +52,7 @@
     //    self.fetchedEntities.delegate = self;
     
     [self.fetchedEntities performFetch:NULL];
-    NSLog(@"fetched %@: %lu", name, self.fetchedEntities.fetchedObjects.count);
+    NSLog(@"fetched %@: %u", name, self.fetchedEntities.fetchedObjects.count);
     return self.fetchedEntities;
 }
 

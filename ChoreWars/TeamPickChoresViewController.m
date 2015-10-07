@@ -15,22 +15,11 @@
 @implementation TeamPickChoresViewController
 
 - (void)viewDidLoad {
+    self.type = @"Chore";
     [super viewDidLoad];
-    [self createChoreViewsFromFetch:[self fetchEntitiesWithName:@"Chore" andSortKey:@"name"]];
 }
 
-
-
-- (void)createChoreViewsFromFetch:(NSFetchedResultsController *)fetch {
-    for (Chore *eachChore in fetch.fetchedObjects) {
-        ChoreView *newChoreView = [[ChoreView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:eachChore];
-        [self.view addSubview:newChoreView];
-        [self.view bringSubviewToFront:newChoreView];
-        [self.entityViewsArray addObject:newChoreView];
-        newChoreView.delegate = self;
-        NSLog(@"Made a choreView for %@", eachChore.name);
-    }
-}
+#pragma mark - Delegate Methods
 
 - (void) entityViewDidLongPress:(EntityView *)choreView {
     [super toggleEditMode];
@@ -104,24 +93,5 @@
         }
     }
 }
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    if (type == NSFetchedResultsChangeInsert) {
-        Chore *aChore = anObject;
-        ChoreView *newChoreView = [[ChoreView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:aChore];
-        [self.view addSubview:newChoreView];
-        [self.view bringSubviewToFront:newChoreView];
-        [self.entityViewsArray addObject:newChoreView];
-        newChoreView.delegate = self;
-        NSLog(@"Made a choreView for %@", aChore.name);
-    }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 @end

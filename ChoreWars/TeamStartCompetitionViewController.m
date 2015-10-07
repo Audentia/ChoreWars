@@ -25,7 +25,7 @@
     [self.datePicker setTimeZone:[NSTimeZone localTimeZone]];
     [self.datePicker setCalendar:[NSCalendar currentCalendar]];
     [self.datePicker setMinimumDate:[NSDate date]];
-    [self.datePicker setMaximumDate:[[NSDate date] addTimeInterval:60 * 24 * 60 * 60]];
+    [self.datePicker setMaximumDate:[[NSDate date] dateByAddingTimeInterval:60 * 24 * 60 * 60]];
     [self.datePicker setDate:[NSDate date] animated:YES];
     
     self.rewardOptions = @[@"Social Shame", @"Pizza", @"Beer"];
@@ -96,7 +96,7 @@
 //    self.fetchedEntities.delegate = self;
     
     [self.fetchedEntities performFetch:NULL];
-    NSLog(@"fetched %@: %lu", name, self.fetchedEntities.fetchedObjects.count);
+    NSLog(@"fetched %@: %u", name, self.fetchedEntities.fetchedObjects.count);
     return self.fetchedEntities;
 }
 

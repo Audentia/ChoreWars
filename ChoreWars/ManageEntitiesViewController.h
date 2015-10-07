@@ -19,9 +19,10 @@
 - (void) shrinkViewtoNormalSize:(UIView *)view;
 
 - (NSFetchedResultsController *) fetchEntitiesWithName:(NSString *)name andSortKey:(NSString *)sortKey;
+- (void)createEntityViewsFromFetch:(NSFetchedResultsController *)fetch WithType:(NSString *)type;
 //- (void)sendEntities;
 
-
+@property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) UIView *trashView;
 @property (nonatomic, strong) UIView *unassignTeamsView;
 @property (nonatomic, strong) NSMutableArray *teamViewsArray;

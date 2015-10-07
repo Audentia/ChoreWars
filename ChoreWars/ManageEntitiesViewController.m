@@ -8,7 +8,7 @@
 
 #import "ManageEntitiesViewController.h"
 
-@interface ManageEntitiesViewController () <NSFetchedResultsControllerDelegate>
+@interface ManageEntitiesViewController () <NSFetchedResultsControllerDelegate, EntityViewDelegate>
 
 @end
 
@@ -20,23 +20,11 @@
     
     self.entityViewsArray = [[NSMutableArray alloc] init];
     [self createTeamViewsFromFetch:[self fetchEntitiesWithName:@"Team" andSortKey:@"name"]];
-}
-
-- (void)createCollisions {
-    self.collider = [[UICollisionBehavior alloc] initWithItems:self.entityViewsArray];
-    //    self.collider.collisionDelegate = self.paddleView;
-    self.collider.collisionMode = UICollisionBehaviorModeEverything;
-    [self.collider addBoundaryWithIdentifier:@"left" fromPoint:CGPointMake(0, 0) toPoint:CGPointMake(0, self.view.frame.size.height)];
-    [self.collider addBoundaryWithIdentifier:@"right" fromPoint:CGPointMake(self.view.frame.size.width, 0) toPoint:CGPointMake(self.view.frame.size.width, self.view.frame.size.height)];
-    [self.collider addBoundaryWithIdentifier:@"bottom" fromPoint:CGPointMake(0, self.view.frame.size.height - 200) toPoint:CGPointMake(self.view.frame.size.width, self.view.frame.size.height - 200)];
-    [self.animator addBehavior:self.collider];
+    [self createEntityViewsFromFetch:[self fetchEntitiesWithName:self.type andSortKey:@"name"] WithType:self.type];
 }
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
+#pragma mark - Fetch Entites and Make EntityViews
 
 - (NSFetchedResultsController *) fetchEntitiesWithName:(NSString *)name andSortKey:(NSString *)sortKey {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -53,9 +41,34 @@
     self.fetchedEntities.delegate = self;
     
     [self.fetchedEntities performFetch:NULL];
-    NSLog(@"fetched %@: %lu", name, self.fetchedEntities.fetchedObjects.count);
+    NSLog(@"fetched %@: %u", name, self.fetchedEntities.fetchedObjects.count);
     return self.fetchedEntities;
 }
+
+- (void)createEntityViewsFromFetch:(NSFetchedResultsController *)fetch WithType:(NSString *)type {
+    for (NSManagedObject *eachEntity in fetch.fetchedObjects) {
+        EntityView *entityView = [[EntityView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:eachEntity WithType:type];
+        [self.view addSubview:entityView];
+        [self.view bringSubviewToFront:entityView];
+        [self.entityViewsArray addObject:entityView];
+        entityView.delegate = self;
+        NSLog(@"Made a roommateView for %@", [entityView.entity valueForKey:@"name"]);
+        NSLog(@"entityViewsArray has %lu things in it", (unsigned long)self.entityViewsArray.count);
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    if (type == NSFetchedResultsChangeInsert) {
+        EntityView *newEntityView = [[EntityView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:anObject WithType:self.type];
+        [self.view addSubview:newEntityView];
+        [self.view bringSubviewToFront:newEntityView];
+        [self.entityViewsArray addObject:newEntityView];
+        newEntityView.delegate = self;
+        NSLog(@"Made a entityView for %@", newEntityView.nameLabel.text);
+    }
+}
+
+#pragma mark - TeamViews and Edit Mode
 
 - (void) createTeamViewsFromFetch:(NSFetchedResultsController *)fetch {
     self.unassignTeamsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200)];
@@ -67,7 +80,7 @@
     CGFloat widthForTeams = self.view.frame.size.width / fetch.fetchedObjects.count;
     CGFloat initialX = 0;
     for (Team *eachTeam in fetch.fetchedObjects) {
-        TeamView *newTeamView = [[TeamView alloc] initWithFrame:CGRectMake(initialX, self.view.frame.size.height - 200, widthForTeams, 200) andEntity:eachTeam];
+        TeamView *newTeamView = [[TeamView alloc] initWithFrame:CGRectMake(initialX, self.view.frame.size.height - 200, widthForTeams, 200) andTeam:eachTeam];
         initialX = initialX + widthForTeams;
         
         [self.view addSubview:newTeamView];
@@ -76,16 +89,62 @@
     
 }
 
-//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-//    if (type == NSFetchedResultsChangeInsert) {
-//        EntityView *newEntityView = [[EntityView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:anObject];
-//        [self.view addSubview:newEntityView];
-//        [self.view bringSubviewToFront:newEntityView];
-//        [self.entityViewsArray addObject:newEntityView];
-//        newEntityView.delegate = self;
-//        NSLog(@"Made a entityView for %@", newEntityView.nameLabel.text);
-//    }
-//}
+- (void) toggleEditMode {
+    if (self.trashView == nil) {
+        self.trashView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 35, 64, 70, 70)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
+        imageView.image = [UIImage imageNamed:@"empty_trash.png"];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [self.trashView addSubview:imageView];
+        [self.view addSubview:self.trashView];
+        [self wiggleViews:self.entityViewsArray];
+        
+        
+    } else {
+        [self.trashView removeFromSuperview];
+        self.trashView = nil;
+        [self stopWigglingViews:self.entityViewsArray];
+    }
+}
+
+#pragma mark - Delegate Methods
+
+- (void) entityViewDidLongPress:(EntityView *)entityView {
+    [self toggleEditMode];
+}
+
+- (void) entityView:(EntityView *)entityView willMoveToPoint:(CGPoint)point {
+    if (CGRectContainsPoint(self.trashView.frame, point)) {
+        [self enlargeView:self.trashView];
+    }
+    if (!CGRectContainsPoint(self.trashView.frame, point)) {
+        [self shrinkViewtoNormalSize:self.trashView];
+    }
+    
+}
+
+- (void) entityView:(EntityView *)entityView didMoveToPoint:(CGPoint)point {
+    if (CGRectContainsPoint(self.trashView.frame, point)) {
+        NSLog(@"drag to trash");
+        //core data delete
+        [[CoreDataManager sharedInstance].managedObjectContext deleteObject:entityView.entity];
+        
+        NSError *error = nil;
+        if (![[CoreDataManager sharedInstance].managedObjectContext save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        [self.entityViewsArray removeObject:entityView];
+        [self shrinkViewtoNormalSize:self.trashView];
+        
+        //remove the view
+        [entityView removeFromSuperview];
+    }
+
+}
+
+#pragma mark - Animations
 
 - (void) shakeView:(UIView *)view {
     CABasicAnimation *animation =
@@ -124,28 +183,51 @@
 }
 
 - (void) shrinkViewtoNormalSize:(UIView *)view {
-     [UIView animateWithDuration:.3 animations:^{
-         view.transform = CGAffineTransformIdentity;
-         } completion:nil];
+    [UIView animateWithDuration:.3 animations:^{
+        view.transform = CGAffineTransformIdentity;
+    } completion:nil];
 }
 
-- (void) toggleEditMode {
-    if (self.trashView == nil) {
-        self.trashView = [[UIView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 35, 64, 70, 70)];
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 70)];
-        imageView.image = [UIImage imageNamed:@"empty_trash.png"];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        
-        [self.trashView addSubview:imageView];
-        [self.view addSubview:self.trashView];
-        [self wiggleViews:self.entityViewsArray];
-        
-        
-    } else {
-        [self.trashView removeFromSuperview];
-        self.trashView = nil;
-        [self stopWigglingViews:self.entityViewsArray];
-    }
+#pragma mark - Adding UIKit Dynamics
+
+- (void)createCollisions {
+    self.collider = [[UICollisionBehavior alloc] initWithItems:self.entityViewsArray];
+    //    self.collider.collisionDelegate = self.paddleView;
+    self.collider.collisionMode = UICollisionBehaviorModeEverything;
+    [self.collider addBoundaryWithIdentifier:@"left" fromPoint:CGPointMake(0, 0) toPoint:CGPointMake(0, self.view.frame.size.height)];
+    [self.collider addBoundaryWithIdentifier:@"right" fromPoint:CGPointMake(self.view.frame.size.width, 0) toPoint:CGPointMake(self.view.frame.size.width, self.view.frame.size.height)];
+    [self.collider addBoundaryWithIdentifier:@"bottom" fromPoint:CGPointMake(0, self.view.frame.size.height - 200) toPoint:CGPointMake(self.view.frame.size.width, self.view.frame.size.height - 200)];
+    [self.animator addBehavior:self.collider];
 }
+
+- (void)sendEntities {
+    //    Start the ball
+    self.pusher = [[UIPushBehavior alloc] initWithItems:@[self.entityViewsArray]
+                                                   mode:UIPushBehaviorModeInstantaneous];
+    int uniqueStartInt = arc4random_uniform(4);
+    //    want to make random numbers so long as the sum equals the same magnitude in the equation v = sqr(x^2 + y^2)
+    switch (uniqueStartInt) {
+        case 0:
+            self.pusher.pushDirection = CGVectorMake(0.1, 0.1);
+            break;
+        case 1:
+            self.pusher.pushDirection = CGVectorMake(0.2, 0.05);
+            break;
+        case 2:
+            self.pusher.pushDirection = CGVectorMake(0.05, 0.2);
+            break;
+        case 3:
+            self.pusher.pushDirection = CGVectorMake(-0.1, -0.1);
+            break;
+            
+        default:
+            break;
+    }
+    
+    self.pusher.active = YES;
+    //    Because push is instantaneous, it will only happen once
+    [self.animator addBehavior:self.pusher];
+}
+
 
 @end

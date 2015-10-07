@@ -7,7 +7,6 @@
 //
 
 #import "ManageEntitiesViewController.h"
-#import "ChoreView.h"
 #import "Chore.h"
 
 @interface TeamPickChoresViewController : ManageEntitiesViewController
