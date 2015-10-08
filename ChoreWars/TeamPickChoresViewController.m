@@ -21,18 +21,24 @@
 
 #pragma mark - Delegate Methods
 
-- (void) entityViewDidLongPress:(EntityView *)choreView {
+- (void) entityViewDidLongPress:(EntityView *)entityView {
     [super toggleEditMode];
+    [self.view bringSubviewToFront:entityView];
 }
 
 - (void) entityView:(EntityView *)entityView willMoveToPoint:(CGPoint)point {
+    CGPoint touchCenter = CGPointMake(point.x - (entityView.frame.size.width / 2), point.y - (entityView.frame.size.height / 2));
+    CGRect potentialNewFrame = CGRectMake(touchCenter.x, touchCenter.y, entityView.frame.size.width, entityView.frame.size.height);
+    CGRect safeBounds = CGRectMake(0, self.navigationController.navigationBar.frame.size.height + 20, self.view.bounds.size.width, self.view.bounds.size.height - (self.navigationController.navigationBar.frame.size.height +20));
+    if (CGRectContainsRect(safeBounds, potentialNewFrame)) {
+        entityView.center = point;
         if (CGRectContainsPoint(self.trashView.frame, point)) {
             [self enlargeView:self.trashView];
         }
         if (!CGRectContainsPoint(self.trashView.frame, point)) {
             [self shrinkViewtoNormalSize:self.trashView];
         }
-        
+    }
 }
 
 - (void) entityView:(EntityView *)entityView didMoveToPoint:(CGPoint)point {
