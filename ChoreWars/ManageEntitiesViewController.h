@@ -22,6 +22,11 @@
 - (void)createEntityViewsFromFetch:(NSFetchedResultsController *)fetch WithType:(NSString *)type;
 //- (void)sendEntities;
 
+@property int entityWidth;
+@property int entityHeight;
+
+@property int teamViewHeight;
+
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) UIView *trashView;
 @property (nonatomic, strong) UIView *unassignTeamsView;

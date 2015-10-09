@@ -47,7 +47,19 @@
 
 - (void)createEntityViewsFromFetch:(NSFetchedResultsController *)fetch WithType:(NSString *)type {
     for (NSManagedObject *eachEntity in fetch.fetchedObjects) {
-        EntityView *entityView = [[EntityView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:eachEntity WithType:type];
+        CGRect frame = [self newEntityFrame];
+        CGRect teamFrame = CGRectMake(10, self.view.bounds.size.height - self.teamViewHeight, self.entityWidth, self.entityHeight);
+
+//        if ([_type isEqualToString:@"Roommate"]) {
+//            if ([[eachEntity valueForKey:@"teams"] isEqualToString:@"TeamA"]) {
+//                frame = teamFrame;
+//            }
+//        } else {
+//            if ([[eachEntity valueForKey:@"team"] isEqualToString:@"TeamA"]) {
+//                frame = teamFrame;
+//            }
+//        }
+        EntityView *entityView = [[EntityView alloc] initWithFrame:frame andEntity:eachEntity WithType:type];
         [self.view addSubview:entityView];
         [self.view bringSubviewToFront:entityView];
         [self.entityViewsArray addObject:entityView];
@@ -59,7 +71,7 @@
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     if (type == NSFetchedResultsChangeInsert) {
-        EntityView *newEntityView = [[EntityView alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2, 50, 50) andEntity:anObject WithType:self.type];
+        EntityView *newEntityView = [[EntityView alloc] initWithFrame:[self newEntityFrame] andEntity:anObject WithType:self.type];
         [self.view addSubview:newEntityView];
         [self.view bringSubviewToFront:newEntityView];
         [self.entityViewsArray addObject:newEntityView];
@@ -71,7 +83,8 @@
 #pragma mark - TeamViews and Edit Mode
 
 - (void) createTeamViewsFromFetch:(NSFetchedResultsController *)fetch {
-    self.unassignTeamsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 200)];
+    self.teamViewHeight = 160;
+    self.unassignTeamsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.teamViewHeight)];
     self.unassignTeamsView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.unassignTeamsView];
     [self.view sendSubviewToBack:self.unassignTeamsView];
@@ -80,7 +93,7 @@
     CGFloat widthForTeams = self.view.frame.size.width / fetch.fetchedObjects.count;
     CGFloat initialX = 0;
     for (Team *eachTeam in fetch.fetchedObjects) {
-        TeamView *newTeamView = [[TeamView alloc] initWithFrame:CGRectMake(initialX, self.view.frame.size.height - 200, widthForTeams, 200) andTeam:eachTeam];
+        TeamView *newTeamView = [[TeamView alloc] initWithFrame:CGRectMake(initialX, self.view.frame.size.height - self.teamViewHeight, widthForTeams, self.teamViewHeight) andTeam:eachTeam];
         initialX = initialX + widthForTeams;
         
         [self.view addSubview:newTeamView];
@@ -148,6 +161,24 @@
         [entityView removeFromSuperview];
     }
 
+}
+
+#pragma mark - Custom Rects
+
+- (CGRect) newEntityFrame {
+    self.entityWidth = 60;
+    self.entityHeight = 60;
+    int navigationHeight = self.navigationController.navigationBar.frame.size.height + 20;
+    
+    CGFloat rangeWidth = self.view.bounds.size.width - self.entityWidth;
+    CGFloat rangeHeight = self.view.bounds.size.height - navigationHeight - self.teamViewHeight - self.entityHeight;
+    CGFloat uniqueXStart = arc4random_uniform(rangeWidth);
+    CGFloat uniqueYStart = arc4random_uniform(rangeHeight);
+    
+//    CGFloat potentialXValue = self.view.frame.size.width / uniqueStart;
+//    CGFloat potentialYValue = self.view.frame.size.height / uniqueStart;
+    
+    return CGRectMake(uniqueXStart, uniqueYStart + navigationHeight, self.entityWidth, self.entityHeight);
 }
 
 #pragma mark - Animations
