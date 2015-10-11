@@ -16,7 +16,7 @@
 
 @implementation EntityView
 
-- (id) initWithFrame:(CGRect)frame andEntity:(id)entity {
+- (id) initWithFrame:(CGRect)frame andEntity:(id)entity WithType:(NSString *)type {
     self = [super initWithFrame:frame];
     if (self) {
         self.entity = entity;
@@ -48,6 +48,8 @@
 }
 
 - (void) configureNameLabel {
+    NSManagedObject *object = self.entity;
+    self.nameLabel.text = [object valueForKey:@"name"];
 }
 
 - (void) didLongPressView:(UILongPressGestureRecognizer *)sender {
@@ -60,11 +62,17 @@
 
 - (void) didPanView:(UIPanGestureRecognizer *)sender {
         CGPoint translation = [sender translationInView:self.superview];
-        self.center = CGPointMake(_lastLocation.x + translation.x,
+        CGPoint newPoint = CGPointMake(_lastLocation.x + translation.x,
                                   _lastLocation.y + translation.y);
+    if (sender.state == UIGestureRecognizerStateChanged) {
+        if (self.delegate) {
+            [self.delegate entityView:self willMoveToPoint:newPoint];
+        }
+    }
+    
     if (sender.state == UIGestureRecognizerStateEnded) {
         if (self.delegate) {
-            [self.delegate entityView:self didMoveToPoint:self.center];
+            [self.delegate entityView:self didMoveToPoint:newPoint];
         }
     }
 }

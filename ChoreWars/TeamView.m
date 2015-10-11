@@ -10,10 +10,10 @@
 
 @implementation TeamView
 
-- (id) initWithFrame:(CGRect)frame andEntity:(id)entity{
+- (id) initWithFrame:(CGRect)frame andTeam:(Team *)team {
     self = [super initWithFrame:frame];
     if (self) {
-        self.entity = entity;
+        self.team = team;
         
         self.backgroundColor = [UIColor blueColor];
         self.layer.borderColor = [UIColor blackColor].CGColor;
@@ -32,7 +32,6 @@
 }
 
 - (void) configureNameLabel {
-    self.team = self.entity;
     self.nameLabel.text = self.team.name;
 }
 @end

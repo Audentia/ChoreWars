@@ -15,13 +15,18 @@
 @protocol EntityViewDelegate <NSObject>
 
 - (void) entityView:(EntityView *)entityView didMoveToPoint:(CGPoint)point;
+- (void) entityView:(EntityView *)entityView willMoveToPoint:(CGPoint)point;
 - (void) entityViewDidLongPress:(EntityView *)entityView;
 
 @end
 
-@interface EntityView : TeamView
+@interface EntityView : UIView
+
+- (id) initWithFrame:(CGRect)frame andEntity:(id)entity WithType:(NSString *)type;
 
 @property CGPoint lastLocation;
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) id entity;
 
 @property (nonatomic, weak) id <EntityViewDelegate> delegate;
 
