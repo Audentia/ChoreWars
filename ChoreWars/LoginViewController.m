@@ -7,6 +7,9 @@
 //
 
 #import "LoginViewController.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
+
 
 
 @interface LoginViewController ()
@@ -18,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    PFLogInViewController *login = [[PFLogInViewController alloc] init];
+    [self presentViewController:login animated:YES completion:nil];
   
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Team" inManagedObjectContext:[CoreDataManager sharedInstance].managedObjectContext];
 
