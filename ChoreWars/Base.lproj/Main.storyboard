@@ -1,102 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="woa-iZ-SJv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QOK-Sq-eGM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
-        <scene sceneID="SMi-bL-ncj">
-            <objects>
-                <viewController id="GHQ-aZ-S8b" customClass="LoginViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vQk-TL-KS1"/>
-                        <viewControllerLayoutGuide type="bottom" id="vVJ-Sx-lBw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="N2R-9d-uhe">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in to your team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8P-wd-VRU">
-                                <rect key="frame" x="197" y="172" width="207" height="56"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="207" id="rgc-bR-ZdZ"/>
-                                    <constraint firstAttribute="height" constant="56" id="w8V-HD-XNu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aa9-du-e8L">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="LFh-y4-BRR"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" id="Ot1-U9-qHa">
-                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ot1-U9-qHa" id="HZ3-HC-aHb">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Na0-oc-2FW">
-                                                    <rect key="frame" x="99" y="11" width="42" height="21"/>
-                                                    <animations/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstItem="Na0-oc-2FW" firstAttribute="centerY" secondItem="HZ3-HC-aHb" secondAttribute="centerY" id="LeJ-xj-0Fw"/>
-                                                <constraint firstItem="Na0-oc-2FW" firstAttribute="centerX" secondItem="HZ3-HC-aHb" secondAttribute="centerX" id="dAF-U1-RZ7"/>
-                                                <constraint firstItem="Na0-oc-2FW" firstAttribute="top" secondItem="HZ3-HC-aHb" secondAttribute="topMargin" constant="3" id="sD3-aL-T9Z"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                        <connections>
-                                            <segue destination="QOK-Sq-eGM" kind="show" id="aWf-CB-Fo2"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="GHQ-aZ-S8b" id="v6O-cL-BRq"/>
-                                    <outlet property="delegate" destination="GHQ-aZ-S8b" id="MNX-v7-i2C"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7a-OY-xJV">
-                                <rect key="frame" x="244" y="480" width="113" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Add Roommates"/>
-                                <connections>
-                                    <segue destination="8AX-J8-fU7" kind="show" id="ibw-Uc-CYg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="V8P-wd-VRU" firstAttribute="centerX" secondItem="N2R-9d-uhe" secondAttribute="centerX" id="7Ss-se-Kbb"/>
-                            <constraint firstItem="aa9-du-e8L" firstAttribute="centerX" secondItem="V8P-wd-VRU" secondAttribute="centerX" id="ANr-cS-goS"/>
-                            <constraint firstItem="aa9-du-e8L" firstAttribute="centerY" secondItem="N2R-9d-uhe" secondAttribute="centerY" id="CjT-3G-XFh"/>
-                            <constraint firstItem="vVJ-Sx-lBw" firstAttribute="top" secondItem="C7a-OY-xJV" secondAttribute="bottom" constant="90" id="UnE-C1-r5c"/>
-                            <constraint firstItem="V8P-wd-VRU" firstAttribute="top" secondItem="vQk-TL-KS1" secondAttribute="bottom" constant="108" id="cjo-mQ-Snw"/>
-                            <constraint firstItem="C7a-OY-xJV" firstAttribute="centerX" secondItem="aa9-du-e8L" secondAttribute="centerX" id="rx7-7v-YtW"/>
-                            <constraint firstItem="aa9-du-e8L" firstAttribute="top" secondItem="V8P-wd-VRU" secondAttribute="bottom" constant="8" symbolic="YES" id="zR4-C1-inp"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="hcV-2p-wue"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Mo-4H-MPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="10" y="-893"/>
-        </scene>
         <!--Manage Roommates View Controller-->
         <scene sceneID="njc-fM-xRi">
             <objects>
@@ -121,26 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTU-HA-Sv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784" y="-1697"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hF8-EH-S5G">
-            <objects>
-                <viewController id="RxV-gM-pMJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ho0-FU-kHy"/>
-                        <viewControllerLayoutGuide type="bottom" id="SFJ-ae-hq1"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="KVG-Y9-BgY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lA2-SB-8dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1754" y="691"/>
+            <point key="canvasLocation" x="1652" y="567"/>
         </scene>
         <!--Team Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -164,7 +55,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Assemble Armies"/>
                                 <connections>
-                                    <segue destination="RxV-gM-pMJ" kind="show" id="fDH-hk-5UQ"/>
+                                    <segue destination="8AX-J8-fU7" kind="show" id="j5A-PD-ta5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Chore Wars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fe-6X-Dks">
@@ -544,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PbU-Ca-HNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1474" y="-1697"/>
+            <point key="canvasLocation" x="2514" y="671"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pk4-oU-cTB">
@@ -583,25 +474,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlx-PF-5iz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="20" y="1003"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ujf-4a-PoF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="woa-iZ-SJv" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KsB-oZ-f1o">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="GHQ-aZ-S8b" kind="relationship" relationship="rootViewController" id="LFd-CT-ttt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w0J-UM-hsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-770" y="-893"/>
         </scene>
     </scenes>
 </document>
