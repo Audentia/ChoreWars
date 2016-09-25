@@ -10,7 +10,20 @@
 #import <Parse/PFObject+Subclass.h>
 
 @implementation PFTeam
-- (void)method {
-    [NSNumber numberWithBool:NO];
+
+- (void) setName:(NSString *)sender {
+    [self setValue:sender forKey:@"name"];
 }
+
+- (NSString *) getName {
+    return [self valueForKey:@"name"];
+}
+
+//- (void) setDidWin:(BOOL)sender {
+//    [self setValue:sender forKey:@"didWin"];
+//}
+
+
+
+
 @end

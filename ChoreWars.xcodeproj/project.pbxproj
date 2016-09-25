@@ -15,6 +15,8 @@
 		C34D3AE91B91765A0018B5BA /* TeamPickChoresViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34D3AE81B91765A0018B5BA /* TeamPickChoresViewController.m */; };
 		C34D3AEC1B9178FF0018B5BA /* TeamStartCompetitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34D3AEB1B9178FF0018B5BA /* TeamStartCompetitionViewController.m */; };
 		C34D3AEF1B917F9E0018B5BA /* TeamNewChoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C34D3AEE1B917F9E0018B5BA /* TeamNewChoreViewController.m */; };
+		C34EA1211C3768E000BD7904 /* PFRoommate.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EA1201C3768E000BD7904 /* PFRoommate.m */; };
+		C34EA1241C376B5300BD7904 /* PFHousehold.m in Sources */ = {isa = PBXBuildFile; fileRef = C34EA1231C376B5300BD7904 /* PFHousehold.m */; };
 		C36B4A861B786D120040FDF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A851B786D120040FDF0 /* main.m */; };
 		C36B4A891B786D120040FDF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A881B786D120040FDF0 /* AppDelegate.m */; };
 		C36B4A8C1B786D120040FDF0 /* TeamHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C36B4A8B1B786D120040FDF0 /* TeamHomeViewController.m */; };
@@ -75,6 +77,10 @@
 		C34D3AEB1B9178FF0018B5BA /* TeamStartCompetitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamStartCompetitionViewController.m; sourceTree = "<group>"; };
 		C34D3AED1B917F9E0018B5BA /* TeamNewChoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamNewChoreViewController.h; sourceTree = "<group>"; };
 		C34D3AEE1B917F9E0018B5BA /* TeamNewChoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamNewChoreViewController.m; sourceTree = "<group>"; };
+		C34EA11F1C3768E000BD7904 /* PFRoommate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRoommate.h; sourceTree = "<group>"; };
+		C34EA1201C3768E000BD7904 /* PFRoommate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRoommate.m; sourceTree = "<group>"; };
+		C34EA1221C376B5300BD7904 /* PFHousehold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFHousehold.h; sourceTree = "<group>"; };
+		C34EA1231C376B5300BD7904 /* PFHousehold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFHousehold.m; sourceTree = "<group>"; };
 		C36B4A811B786D120040FDF0 /* ChoreWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChoreWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36B4A851B786D120040FDF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C36B4A871B786D120040FDF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -253,8 +259,12 @@
 		C3DDBD4A1BDB424800C84BE7 /* ChoreWarsParse */ = {
 			isa = PBXGroup;
 			children = (
+				C34EA1221C376B5300BD7904 /* PFHousehold.h */,
+				C34EA1231C376B5300BD7904 /* PFHousehold.m */,
 				C3DDBD4E1BDB436300C84BE7 /* PFTeam.h */,
 				C3DDBD4F1BDB436300C84BE7 /* PFTeam.m */,
+				C34EA11F1C3768E000BD7904 /* PFRoommate.h */,
+				C34EA1201C3768E000BD7904 /* PFRoommate.m */,
 				C3DDBD511BDB43D700C84BE7 /* PFCompetition.h */,
 				C3DDBD521BDB43D700C84BE7 /* PFCompetition.m */,
 				C3DDBD4B1BDB427600C84BE7 /* PFChore.h */,
@@ -345,7 +355,7 @@
 		C36B4A791B786D110040FDF0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = madebydouglas;
 				TargetAttributes = {
 					C36B4A801B786D110040FDF0 = {
@@ -476,7 +486,9 @@
 				C3207AE41B82A4C30066F4E8 /* ManageRoommatesViewController.m in Sources */,
 				C3F853211BA3AA8800007F57 /* ManageEntitiesViewController.m in Sources */,
 				C3F8531C1BA3A56700007F57 /* Team.m in Sources */,
+				C34EA1211C3768E000BD7904 /* PFRoommate.m in Sources */,
 				C34D3AE91B91765A0018B5BA /* TeamPickChoresViewController.m in Sources */,
+				C34EA1241C376B5300BD7904 /* PFHousehold.m in Sources */,
 				C34D3AEF1B917F9E0018B5BA /* TeamNewChoreViewController.m in Sources */,
 				C3F8531D1BA3A56700007F57 /* Chore+CoreDataProperties.m in Sources */,
 				C3948B7F1BAA540F006528C9 /* TeamAssignedChoresTableViewController.m in Sources */,
@@ -559,8 +571,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -603,8 +617,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

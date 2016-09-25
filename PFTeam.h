@@ -10,4 +10,15 @@
 
 @interface PFTeam : PFObject<PFSubclassing>
 
+// attributes
+- (void) setName:(NSString *)sender;
+- (NSString *) getName;
+
+// relationships
+- (void) choresToWin;
+- (void) competitions;
+- (void) opposingChoresToConfirm;
+- (void) participants;
+- (void) household;
+
 @end

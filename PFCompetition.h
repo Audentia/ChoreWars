@@ -10,4 +10,17 @@
 
 @interface PFCompetition : PFObject<PFSubclassing>
 
+// attributes
+- (void) setName:(NSString *)sender;
+- (NSString *) getName;
+- (void)completionDate;
+- (void)creationDate;
+- (void)reward;
+- (void)targetDate;
+
+// relationships
+- (void) teams;
+- (void) household;
+
+
 @end

@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Team.h"
+#import "PFTeam.h"
 
 @interface TeamView : UIView
 
 @property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) Team *team;
+@property (nonatomic, strong) PFTeam *team;
 
-- (id) initWithFrame:(CGRect)frame andTeam:(Team *)team;
+- (id) initWithFrame:(CGRect)frame andTeam:(PFTeam *)team;
 
 @end

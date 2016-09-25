@@ -23,6 +23,9 @@
     // https://parse.com/docs/ios_guide#localdatastore/iOS
     [Parse enableLocalDatastore];
     
+    //allow subclassing Parse
+    [PFObject registerSubclass]; //does this need to list subclasses i make?
+    
     // Initialize Parse.
     [Parse setApplicationId:@"DtZpG210XK31YPXytknMSu3BLh4EZzY3McJBuPxg"
                   clientKey:@"NAq6Pzt2kffgmOukpE0OcEJP3OCe8mxFTiFb8KZf"];

@@ -10,4 +10,17 @@
 
 @interface PFChore : PFObject<PFSubclassing>
 
+// attributes
+- (void) setName:(NSString *)sender;
+- (NSString *) getName;
+- (void) assignDate;
+- (void) completeDate;
+- (void) confirmDate;
+- (void) moreInfo;
+
+// relationships
+- (void) opposingTeam;
+- (void) roommate;
+- (void) team;
+
 @end
