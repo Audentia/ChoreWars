@@ -10,7 +10,7 @@
 
 @implementation TeamView
 
-- (id) initWithFrame:(CGRect)frame andTeam:(Team *)team {
+- (id) initWithFrame:(CGRect)frame andTeam:(PFTeam *)team {
     self = [super initWithFrame:frame];
     if (self) {
         self.team = team;
@@ -32,6 +32,7 @@
 }
 
 - (void) configureNameLabel {
-    self.nameLabel.text = self.team.name;
+    self.nameLabel.text = [self.team getName];
 }
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ManageEntitiesViewController.h"
+#import <Parse/Parse.h>
 
 @interface ManageEntitiesViewController () <NSFetchedResultsControllerDelegate, EntityViewDelegate>
 

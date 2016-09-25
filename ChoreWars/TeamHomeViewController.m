@@ -8,8 +8,10 @@
 
 #import "TeamHomeViewController.h"
 #import "EntityView.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
-@interface TeamHomeViewController ()
+@interface TeamHomeViewController () <PFLogInViewControllerDelegate>
 
 @end
 
@@ -19,8 +21,21 @@
     [super viewDidLoad];
 
  }
+
+- (void)presentCustomLogin {
+    PFLogInViewController *login = [[PFLogInViewController alloc] init];
+    login.delegate = self;
+    [self presentViewController:login animated:YES completion:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if ([PFUser currentUser] == nil) {
+        [self presentCustomLogin];
+    }
+}
 - (IBAction)didPressLogoutButton:(UIBarButtonItem *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [PFUser logOut];
+    [self presentCustomLogin];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -128,7 +128,6 @@
             [detailItem setValue:phone forKey:@"phoneNumber"];
             [detailItem setValue:email forKey:@"email"];
 //            [detailItem setValue:[NSDate date] forKey:@"timeStamp"];
-            
             NSError *error;
             [context save:&error];
         } else {

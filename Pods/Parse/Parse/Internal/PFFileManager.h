@@ -9,8 +9,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import <Parse/PFConstants.h>
+
+#import "PFMacros.h"
+
 @class BFExecutor;
-@class BFTask;
+@class BFTask PF_GENERIC(__covariant BFGenericType);
 
 typedef NS_OPTIONS(uint8_t, PFFileManagerOptions) {
     PFFileManagerOptionSkipBackup = 1 << 0,
@@ -59,7 +63,6 @@ typedef NS_OPTIONS(uint8_t, PFFileManagerOptions) {
  */
 - (NSString *)parseDefaultDataDirectoryPath;
 - (NSString *)parseLocalSandboxDataDirectoryPath;
-- (NSString *)parseDataDirectoryPath_DEPRECATED;
 
 /*!
  The path including directories that we save data to for a given filename.
